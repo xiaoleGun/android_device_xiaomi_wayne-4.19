@@ -370,4 +370,11 @@
          1: 2 button mode (back, home buttons + swipe up for overview)
          2: gestures only for back, home and overview -->
     <integer name="config_navBarInteractionMode">2</integer>
+
+    <!-- List supported color modes. -->
+    <integer-array name="config_availableColorModes">
+        <item>0</item> <!-- COLOR_MODE_NATURAL -->
+        <item>1</item> <!-- COLOR_MODE_BOOSTED -->
+        <item>3</item> <!-- COLOR_MODE_AUTOMATIC -->
+    </integer-array>
 </resources>
