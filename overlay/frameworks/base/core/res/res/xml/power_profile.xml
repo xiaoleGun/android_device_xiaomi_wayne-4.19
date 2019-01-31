@@ -47,9 +47,7 @@
     <item name="cpu.cluster_power.cluster0">2</item>
     <item name="cpu.cluster_power.cluster1">2</item>
     <item name="battery.capacity">3010</item>
-    <item name="bluetooth.active">70</item>
     <item name="bluetooth.at">2</item>
-    <item name="bluetooth.on">2</item>
     <item name="wifi.on">2</item>
     <item name="wifi.active">175</item>
     <item name="wifi.scan">180</item>
