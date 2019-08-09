@@ -26,6 +26,9 @@
 #
 
 on init
+    # Disable powersaving
+    write /sys/module/lpm_levels/parameters/sleep_disabled 1
+
     write /dev/stune/foreground/schedtune.sched_boost_no_override 1
     write /dev/stune/top-app/schedtune.sched_boost_no_override 1
     write /dev/stune/schedtune.colocate 0
@@ -141,6 +144,7 @@ on enable-low-power
     write /dev/cpuset/background/cpus 0-3
     write /dev/cpuset/system-background/cpus 0-3
 
+    # Turn on sleep modes
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
 
     # Post-setup services
