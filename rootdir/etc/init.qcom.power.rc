@@ -70,7 +70,6 @@ on boot
     mkdir /mnt/vendor/persist/hvdcp_opti 0770 root system
 
 on charger
-    trigger enable-low-power
     start vendor.power_off_alarm
 
 on enable-low-power
