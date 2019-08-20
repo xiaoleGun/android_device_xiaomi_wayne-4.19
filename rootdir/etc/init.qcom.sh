@@ -114,7 +114,6 @@ case "$target" in
         else
              hw_platform=`cat /sys/devices/system/soc/soc0/hw_platform`
         fi
-        start_msm_irqbalance660
         ;;
     "msm8916")
         start_msm_irqbalance_8939
