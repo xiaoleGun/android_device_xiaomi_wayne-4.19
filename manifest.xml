@@ -210,7 +210,7 @@
     <hal format="hidl">
         <name>vendor.qti.hardware.btconfigstore</name>
         <transport>hwbinder</transport>
-        <fqname>@1.0::IBTConfigStore/default</fqname>
+        <fqname>@2.0::IBTConfigStore/default</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.qti.hardware.cacert</name>
