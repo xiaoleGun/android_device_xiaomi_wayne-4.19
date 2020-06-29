@@ -47,7 +47,6 @@ constexpr char kPowerHalRenderingProp[] = "vendor.powerhal.rendering";
 
 Power::Power()
     : mInteractionHandler(nullptr),
-      mVRModeOn(false),
       mSustainedPerfModeOn(false) {
     mInteractionHandler = std::make_unique<InteractionHandler>();
     mInteractionHandler->Init();
@@ -57,15 +56,6 @@ Power::Power()
         LOG(INFO) << "Initialize with SUSTAINED_PERFORMANCE on";
         HintManager::GetInstance()->DoHint("SUSTAINED_PERFORMANCE");
         mSustainedPerfModeOn = true;
-    } else if (state == "VR") {
-        LOG(INFO) << "Initialize with VR on";
-        HintManager::GetInstance()->DoHint(state);
-        mVRModeOn = true;
-    } else if (state == "VR_SUSTAINED_PERFORMANCE") {
-        LOG(INFO) << "Initialize with SUSTAINED_PERFORMANCE and VR on";
-        HintManager::GetInstance()->DoHint("VR_SUSTAINED_PERFORMANCE");
-        mSustainedPerfModeOn = true;
-        mVRModeOn = true;
     } else {
         LOG(INFO) << "Initialize PowerHAL";
     }
@@ -91,43 +81,13 @@ ndk::ScopedAStatus Power::setMode(Mode type, bool enabled) {
     }
     switch (type) {
         case Mode::SUSTAINED_PERFORMANCE:
-            if (enabled && !mSustainedPerfModeOn) {
-                if (!mVRModeOn) {  // Sustained mode only.
-                    HintManager::GetInstance()->DoHint("SUSTAINED_PERFORMANCE");
-                } else {  // Sustained + VR mode.
-                    HintManager::GetInstance()->EndHint("VR");
-                    HintManager::GetInstance()->DoHint("VR_SUSTAINED_PERFORMANCE");
-                }
-                mSustainedPerfModeOn = true;
-            } else if (!enabled && mSustainedPerfModeOn) {
-                HintManager::GetInstance()->EndHint("VR_SUSTAINED_PERFORMANCE");
-                HintManager::GetInstance()->EndHint("SUSTAINED_PERFORMANCE");
-                if (mVRModeOn) {  // Switch back to VR Mode.
-                    HintManager::GetInstance()->DoHint("VR");
-                }
-                mSustainedPerfModeOn = false;
+            if (enabled) {
+                HintManager::GetInstance()->DoHint("SUSTAINED_PERFORMANCE");
             }
-            break;
-        case Mode::VR:
-            if (enabled && !mVRModeOn) {
-                if (!mSustainedPerfModeOn) {  // VR mode only.
-                    HintManager::GetInstance()->DoHint("VR");
-                } else {  // Sustained + VR mode.
-                    HintManager::GetInstance()->EndHint("SUSTAINED_PERFORMANCE");
-                    HintManager::GetInstance()->DoHint("VR_SUSTAINED_PERFORMANCE");
-                }
-                mVRModeOn = true;
-            } else if (!enabled && mVRModeOn) {
-                HintManager::GetInstance()->EndHint("VR_SUSTAINED_PERFORMANCE");
-                HintManager::GetInstance()->EndHint("VR");
-                if (mSustainedPerfModeOn) {  // Switch back to sustained Mode.
-                    HintManager::GetInstance()->DoHint("SUSTAINED_PERFORMANCE");
-                }
-                mVRModeOn = false;
-            }
+            mSustainedPerfModeOn = true;
             break;
         case Mode::LAUNCH:
-            if (mVRModeOn || mSustainedPerfModeOn) {
+            if (mSustainedPerfModeOn) {
                 break;
             }
             [[fallthrough]];
@@ -144,14 +104,6 @@ ndk::ScopedAStatus Power::setMode(Mode type, bool enabled) {
         case Mode::DISPLAY_INACTIVE:
             [[fallthrough]];
         case Mode::AUDIO_STREAMING_LOW_LATENCY:
-            [[fallthrough]];
-        case Mode::CAMERA_STREAMING_SECURE:
-            [[fallthrough]];
-        case Mode::CAMERA_STREAMING_LOW:
-            [[fallthrough]];
-        case Mode::CAMERA_STREAMING_MID:
-            [[fallthrough]];
-        case Mode::CAMERA_STREAMING_HIGH:
             [[fallthrough]];
         case Mode::GAME_LOADING:
             [[fallthrough]];
@@ -182,7 +134,7 @@ ndk::ScopedAStatus Power::setBoost(Boost type, int32_t durationMs) {
     }
     switch (type) {
         case Boost::INTERACTION:
-            if (mVRModeOn || mSustainedPerfModeOn) {
+            if (mSustainedPerfModeOn) {
                 break;
             }
             mInteractionHandler->Acquire(durationMs);
@@ -193,12 +145,8 @@ ndk::ScopedAStatus Power::setBoost(Boost type, int32_t durationMs) {
             [[fallthrough]];
         case Boost::AUDIO_LAUNCH:
             [[fallthrough]];
-        case Boost::CAMERA_LAUNCH:
-            [[fallthrough]];
-        case Boost::CAMERA_SHOT:
-            [[fallthrough]];
         default:
-            if (mVRModeOn || mSustainedPerfModeOn) {
+            if (mSustainedPerfModeOn) {
                 break;
             }
             if (durationMs > 0) {
@@ -229,9 +177,8 @@ constexpr const char *boolToString(bool b) {
 binder_status_t Power::dump(int fd, const char **, uint32_t) {
     std::string buf(::android::base::StringPrintf(
             "HintManager Running: %s\n"
-            "VRMode: %s\n"
             "SustainedPerformanceMode: %s\n",
-            boolToString(HintManager::GetInstance()->IsRunning()), boolToString(mVRModeOn),
+            boolToString(HintManager::GetInstance()->IsRunning()),
             boolToString(mSustainedPerfModeOn)));
     // Dump nodes through libperfmgr
     HintManager::GetInstance()->DumpToFd(fd);
