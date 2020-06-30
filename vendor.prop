@@ -16,6 +16,7 @@ vendor.voice.path.for.pcm.voip=true
 vendor.audio.offload.multiaac.enable=true
 vendor.audio.dolby.ds2.enabled=false
 vendor.audio.dolby.ds2.hardbypass=false
+vendor.audio.hal.boot.timeout.ms=20000
 vendor.audio.offload.multiple.enabled=false
 vendor.audio.offload.passthrough=false
 ro.vendor.audio.sdk.ssr=false
