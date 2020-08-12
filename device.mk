@@ -287,6 +287,7 @@ PRODUCT_COPY_FILES += \
 
 # Perf
 PRODUCT_PACKAGES += \
+    libqti-perfd-client \
     vendor.qti.hardware.perf@2.2.vendor
 
 # Power
