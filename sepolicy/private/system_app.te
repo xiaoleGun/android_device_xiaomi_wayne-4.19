@@ -1,1 +1,2 @@
 hal_client_domain(system_app, hal_mlipay)
+binder_call(system_app, storaged)
