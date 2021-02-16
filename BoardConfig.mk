@@ -79,6 +79,7 @@ TARGET_KERNEL_CONFIG := vendor/wayne_defconfig
 TARGET_KERNEL_VERSION := 4.19
 
 # Platform
+BOARD_VENDOR := xiaomi
 TARGET_BOARD_PLATFORM := sdm660
 
 # Partitions

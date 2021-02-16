@@ -21,7 +21,9 @@ PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
-    vendor/qcom/opensource/usb/etc
+    vendor/qcom/opensource/usb/etc \
+    hardware/google/interfaces \
+    hardware/google/pixel
 
 # AID/fs configs
 PRODUCT_PACKAGES += \
@@ -289,7 +291,7 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power-service-qti
+    android.hardware.power-service.wayne-libperfmgr
 
 # Protobuf
 PRODUCT_PACKAGES += \
