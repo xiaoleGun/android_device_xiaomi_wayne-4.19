@@ -17,6 +17,7 @@ cpp.set.clock                           u:object_r:vendor_default_prop:s0
 disable.cpp.power.collapse              u:object_r:vendor_default_prop:s0
 persist.camera.                         u:object_r:vendor_default_prop:s0
 persist.vendor.camera.                  u:object_r:camera_prop:s0
+vendor.camera.                          u:object_r:camera_prop:s0
 vendor.camera.eis.gyro_name             u:object_r:camera_prop:s0
 vidc.enc.dcvs.extra-buff-count          u:object_r:vendor_default_prop:s0
 
