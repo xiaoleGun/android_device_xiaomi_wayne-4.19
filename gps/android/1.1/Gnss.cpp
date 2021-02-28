@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2018, The Linux Foundation. All rights reserved.
+ * Copyright (c) 2017-2020, The Linux Foundation. All rights reserved.
  * Not a Contribution
  */
 /*
@@ -29,6 +29,7 @@
 #include <LocationUtil.h>
 
 #include "battery_listener.h"
+#include "loc_misc_utils.h"
 
 typedef const GnssInterface* (getLocationInterface)();
 
@@ -83,6 +84,7 @@ void Gnss::GnssDeathRecipient::serviceDied(uint64_t cookie, const wp<IBase>& who
     LOC_LOGE("%s] service died. cookie: %llu, who: %p",
             __FUNCTION__, static_cast<unsigned long long>(cookie), &who);
     if (mGnss != nullptr) {
+        mGnss->getGnssInterface()->resetNetworkInfo();
         mGnss->stop();
         mGnss->cleanup();
     }
@@ -97,6 +99,8 @@ void location_on_battery_status_changed(bool charging) {
 Gnss::Gnss() {
     ENTRY_LOG_CALLFLOW();
     sGnss = this;
+    // initilize gnss interface at first in case needing notify battery status
+    sGnss->getGnssInterface()->initialize();
     // register health client to listen on battery change
     loc_extn_battery_properties_listener_init(location_on_battery_status_changed);
     // clear pending GnssConfig
@@ -108,7 +112,7 @@ Gnss::Gnss() {
 Gnss::~Gnss() {
     ENTRY_LOG_CALLFLOW();
     if (mApi != nullptr) {
-        delete mApi;
+        mApi->destroy();
         mApi = nullptr;
     }
     sGnss = nullptr;
@@ -141,22 +145,11 @@ GnssAPIClient* Gnss::getApi() {
 const GnssInterface* Gnss::getGnssInterface() {
     static bool getGnssInterfaceFailed = false;
     if (nullptr == mGnssInterface && !getGnssInterfaceFailed) {
-        LOC_LOGD("%s]: loading libgnss.so::getGnssInterface ...", __func__);
-        getLocationInterface* getter = NULL;
-        const char *error = NULL;
-        dlerror();
-        void *handle = dlopen("libgnss.so", RTLD_NOW);
-        if (NULL == handle || (error = dlerror()) != NULL)  {
-            LOC_LOGW("dlopen for libgnss.so failed, error = %s", error);
-        } else {
-            getter = (getLocationInterface*)dlsym(handle, "getGnssInterface");
-            if ((error = dlerror()) != NULL)  {
-                LOC_LOGW("dlsym for libgnss.so::getGnssInterface failed, error = %s", error);
-                getter = NULL;
-            }
-        }
+        void * libHandle = nullptr;
+        getLocationInterface* getter = (getLocationInterface*)
+                dlGetSymFromLib(libHandle, "libgnss.so", "getGnssInterface");
 
-        if (NULL == getter) {
+        if (nullptr == getter) {
             getGnssInterfaceFailed = true;
         } else {
             mGnssInterface = (const GnssInterface*)(*getter)();
@@ -224,7 +217,7 @@ Return<bool> Gnss::updateConfiguration(GnssConfig& gnssConfig) {
         }
         if (gnssConfig.flags & GNSS_CONFIG_FLAGS_LPP_PROFILE_VALID_BIT) {
             mPendingConfig.flags |= GNSS_CONFIG_FLAGS_LPP_PROFILE_VALID_BIT;
-            mPendingConfig.lppProfile = gnssConfig.lppProfile;
+            mPendingConfig.lppProfileMask = gnssConfig.lppProfileMask;
         }
         if (gnssConfig.flags & GNSS_CONFIG_FLAGS_LPPE_CONTROL_PLANE_VALID_BIT) {
             mPendingConfig.flags |= GNSS_CONFIG_FLAGS_LPPE_CONTROL_PLANE_VALID_BIT;
@@ -303,14 +296,7 @@ Return<bool> Gnss::injectLocation(double latitudeDegrees,
 
 Return<bool> Gnss::injectTime(int64_t timeMs, int64_t timeReferenceMs,
                               int32_t uncertaintyMs) {
-    ENTRY_LOG_CALLFLOW();
-    const GnssInterface* gnssInterface = getGnssInterface();
-    if (nullptr != gnssInterface) {
-        gnssInterface->injectTime(timeMs, timeReferenceMs, uncertaintyMs);
-        return true;
-    } else {
-        return false;
-    }
+    return true;
 }
 
 Return<void> Gnss::deleteAidingData(V1_0::IGnss::GnssAidingData aidingDataFlags)  {
@@ -394,7 +380,7 @@ Return<bool> Gnss::setCallback_1_1(const sp<V1_1::IGnssCallback>& callback) {
         OdcpiRequestCallback cb = [this](const OdcpiRequestInfo& odcpiRequest) {
             odcpiRequestCb(odcpiRequest);
         };
-        gnssInterface->odcpiInit(cb);
+        gnssInterface->odcpiInit(cb, OdcpiPrioritytype::ODCPI_HANDLER_PRIORITY_LOW);
     }
     return setCallback(callback);
 }
@@ -444,6 +430,9 @@ Return<bool> Gnss::injectBestLocation(const GnssLocation& gnssLocation) {
 
 void Gnss::odcpiRequestCb(const OdcpiRequestInfo& request) {
     ENTRY_LOG_CALLFLOW();
+    if (ODCPI_REQUEST_TYPE_STOP == request.type) {
+        return;
+    }
     if (mGnssCbIface_1_1 != nullptr) {
         // For emergency mode, request DBH (Device based hybrid) location
         // Mark Independent from GNSS flag to false.

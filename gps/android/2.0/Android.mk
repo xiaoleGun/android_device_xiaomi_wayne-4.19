@@ -2,6 +2,9 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := android.hardware.gnss@2.0-impl-qti
+LOCAL_SANITIZE += $(GNSS_SANITIZE)
+# activate the following line for debug purposes only, comment out for production
+#LOCAL_SANITIZE_DIAG += $(GNSS_SANITIZE_DIAG)
 LOCAL_VENDOR_MODULE := true
 LOCAL_MODULE_RELATIVE_PATH := hw
 LOCAL_SRC_FILES := \
@@ -14,8 +17,8 @@ LOCAL_SRC_FILES := \
     GnssGeofencing.cpp \
     GnssNi.cpp \
     GnssDebug.cpp \
-    ../measurement_corrections/1.0/MeasurementCorrections.cpp \
-    ../visibility_control/1.0/GnssVisibilityControl.cpp
+    MeasurementCorrections.cpp \
+    GnssVisibilityControl.cpp
 
 LOCAL_SRC_FILES += \
     location_api/GnssAPIClient.cpp \
@@ -30,9 +33,8 @@ LOCAL_CFLAGS += \
 endif
 
 LOCAL_C_INCLUDES:= \
-    $(LOCAL_PATH)/location_api \
-    $(LOCAL_PATH)/../measurement_corrections/1.0 \
-    $(LOCAL_PATH)/../visibility_control/1.0
+    $(LOCAL_PATH)/location_api
+
 LOCAL_HEADER_LIBRARIES := \
     libgps.utils_headers \
     libloc_core_headers \
@@ -52,6 +54,7 @@ LOCAL_SHARED_LIBRARIES := \
     android.hardware.gnss.visibility_control@1.0 \
     android.hardware.health@1.0 \
     android.hardware.health@2.0 \
+    android.hardware.health@2.1 \
     android.hardware.power@1.2 \
     libbase
 
@@ -68,6 +71,9 @@ include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := android.hardware.gnss@2.0-service-qti
+LOCAL_SANITIZE += $(GNSS_SANITIZE)
+# activate the following line for debug purposes only, comment out for production
+#LOCAL_SANITIZE_DIAG += $(GNSS_SANITIZE_DIAG)
 LOCAL_VINTF_FRAGMENTS := android.hardware.gnss@2.0-service-qti.xml
 LOCAL_VENDOR_MODULE := true
 LOCAL_MODULE_RELATIVE_PATH := hw
