@@ -24,3 +24,40 @@ genfscon sysfs /devices/platform/soc/800f000.qcom,spmi/spmi-0/spmi0-03/800f000.q
 
 # Touchpanel
 genfscon sysfs /touchpanel                                      u:object_r:sysfs_touchpanel:s0
+
+# Wakeup
+genfscon sysfs /devices/platform/soc/14780000.qcom,ipa/wakeup                                                                                    u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/4080000.qcom,mss/wakeup                                                                                     u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/15700000.qcom,lpass/wakeup                                                                                  u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/a800000.ssusb/wakeup                                                                                        u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/cce0000.qcom,venus/wakeup                                                                                   u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/soc:fpc1020/wakeup                                                                                          u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/soc:goodix_fp/wakeup                                                                                        u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/soc:gpio_keys/wakeup                                                                                        u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/soc:hall_switch/wakeup                                                                                      u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,kgsl-hyp/wakeup                                                                                    u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,smp2p-adsp/wakeup                                                                                  u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,smp2p-modem/wakeup                                                                                 u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/800f000.qcom,spmi/spmi-0/spmi0-03/800f000.qcom,spmi:qcom,pm660l@3:anlg-cdc@f000/wakeup                      u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,smp2p_sleepstate/wakeup                                                                            u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,smp2p-cdsp/wakeup                                                                                  u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/ca0c000.qcom,cci/ca0c000.qcom,cci:qcom,camera@0/video4linux/video2/wakeup                                   u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/ca0c000.qcom,cci/ca0c000.qcom,cci:qcom,camera@1/video4linux/video3/wakeup                                   u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/ca0c000.qcom,cci/ca0c000.qcom,cci:qcom,camera@2/video4linux/video4/wakeup                                   u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/18800000.qcom,icnss/wakeup                                                                                  u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/virtual/diag/diag/wakeup                                                                                                 u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/virtual/input/input1/wakeup                                                                                              u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/virtual/misc/msm_aac/wakeup                                                                                              u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/virtual/misc/msm_alac/wakeup                                                                                             u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/virtual/misc/msm_amrnb/wakeup                                                                                            u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/virtual/misc/msm_amrwb/wakeup                                                                                            u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/virtual/misc/msm_amrwbplus/wakeup                                                                                        u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/virtual/misc/msm_ape/wakeup                                                                                              u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/virtual/misc/msm_evrc/wakeup                                                                                             u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/virtual/misc/msm_g711alaw/wakeup                                                                                         u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/virtual/misc/msm_g711mlaw/wakeup                                                                                         u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/virtual/misc/msm_mp3/wakeup                                                                                              u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/virtual/misc/msm_multi_aac/wakeup                                                                                        u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/virtual/misc/msm_qcelp/wakeup                                                                                            u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/virtual/misc/msm_wma/wakeup                                                                                              u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/virtual/misc/msm_wmapro/wakeup                                                                                           u:object_r:sysfs_wakeup:s0
