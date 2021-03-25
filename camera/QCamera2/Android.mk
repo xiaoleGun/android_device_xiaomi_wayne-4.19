@@ -192,7 +192,7 @@ LOCAL_SHARED_LIBRARIES += libdualcameraddm
 LOCAL_CFLAGS += -DENABLE_QC_BOKEH
 endif
 ifeq ($(USE_DISPLAY_SERVICE),true)
-LOCAL_SHARED_LIBRARIES += android.frameworks.displayservice@1.0 android.hidl.base@1.0 libhidlbase
+LOCAL_SHARED_LIBRARIES += android.frameworks.displayservice@1.0 libhidltransport libhidlbase
   ifneq ($(filter P% p% Q% q%,$(TARGET_PLATFORM_VERSION)),)
     LOCAL_SHARED_LIBRARIES += libhidltransport
   endif
