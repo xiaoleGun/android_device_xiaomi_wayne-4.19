@@ -1132,14 +1132,15 @@ vendor/lib/hw/android.hardware.keymaster@3.0-impl-qti.so
 vendor/etc/init/android.hardware.keymaster@3.0-service-qti.rc
 vendor/bin/hw/android.hardware.keymaster@3.0-service-qti
 
-# Listen - from jasmine
-vendor/lib/hw/sound_trigger.primary.sdm660.so|8bae35ddf095f33543413bec940f538a7fada63b
-vendor/lib/libadpcmdec.so|6e9be864a1380e099a2d68237e13a724f3143314
-vendor/lib/libgcs-calwrapper.so|a7ee01ad02f69c182b9f28cb1c10b105ec8d607f
-vendor/lib/libgcs-ipc.so|d2a33d059bc02c6f635c350f0c3d524a0216557d
-vendor/lib/libgcs-osal.so|dfae7d1bb15b7bd19fef7427f0a6f6df28d5d30a
-vendor/lib/libgcs.so|91e2a7e52bbc076eb3761586bcaf623160612a79
-vendor/lib/libsmwrapper.so|d28c31e4dd25de2eb7d1face701b0f6acf1b1d0e
+# Listen - from lemon 21.4.13
+vendor/lib/hw/sound_trigger.primary.bengal.so:vendor/lib/hw/sound_trigger.primary.sdm660.so|d7532a84cd824bc65a0ae4c214ee590decb4151e
+vendor/lib/libadpcmdec.so|491fedbdcf9a395340ce4142c277156c0056bcf8
+vendor/lib/libgcs-calwrapper.so|d2e93c944c90dd21fe26ff8e23acbaa399ae0ea4
+vendor/lib/libgcs-ipc.so|13d1d48a50c760a11eeacef1b5eae93e4d1ab47b
+vendor/lib/libgcs-osal.so|0e762ecaf6b0d59e5322323b0fef17e8c76d0b4a
+vendor/lib/libgcs.so|f21cfb8ab944d57b15374b9a7a7eeac7a022232a
+vendor/lib/liblistensoundmodel2.so|301dbebde95b3f7ac5dc0d9667d66f10d60f49fc
+vendor/lib/libsmwrapper.so|a57ed968010731a91f0c42321387ee1ab8d878cc
 
 # Media - from Cat S62Pro sdm660_64-user 11 RKQ1.210406.002 1.015.00
 lib/libFileMux.so|22005fb1595b2b76e199b82ff3790c1bc3d54a20
