@@ -75,6 +75,7 @@ on early-boot
 on boot
     start rmt_storage
     start rfs_access
+
     ####Regionalization config and prop files####
     chmod 0644 /persist/speccfg/spec
     chmod 0644 /persist/speccfg/devicetype
@@ -130,6 +131,10 @@ on boot
     # Thermal
     chmod 0770 /sys/class/power_supply/battery/device/thermalcall
     chown system system /sys/class/power_supply/battery/device/thermalcall
+    chmod 0664 /sys/class/thermal/thermal_message/sconfig
+    chown system system /sys/class/thermal/thermal_message/sconfig
+    chmod 0666 /sys/class/thermal/thermal_message/temp_state
+    chown system system /sys/class/thermal/thermal_message/temp_state
 
 #Create folder dump yuv images while debugging
     mkdir /data/vendor/camera 0770 camera camera
