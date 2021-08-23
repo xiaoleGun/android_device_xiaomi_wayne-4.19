@@ -25,6 +25,9 @@ genfscon sysfs /devices/platform/soc/800f000.qcom,spmi/spmi-0/spmi0-03/800f000.q
 # Touchpanel
 genfscon sysfs /touchpanel                                      u:object_r:sysfs_touchpanel:s0
 
+# SSR
+genfscon sysfs /devices/platform/soc/soc:qcom,kgsl-hyp/subsys3/name      u:object_r:sysfs_ssr:s0
+
 # Wakeup
 genfscon sysfs /devices/platform/soc/14780000.qcom,ipa/wakeup                                                                                    u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/4080000.qcom,mss/wakeup                                                                                     u:object_r:sysfs_wakeup:s0
