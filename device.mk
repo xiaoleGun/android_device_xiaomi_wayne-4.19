@@ -196,10 +196,10 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-service \
     android.hardware.drm@1.3-service.clearkey
 
-# fwk-detect
+# Framework detect
 PRODUCT_PACKAGES += \
-    libqti_vndfwk_detect \
-    libqti_vndfwk_detect.vendor
+    libqti_vndfwk_detect.vendor \
+    libvndfwk_detect_jni.qti.vendor
 
 # GPS / Location
 PRODUCT_PACKAGES += \
@@ -242,6 +242,11 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/idc/uinput-fpc.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/uinput-fpc.idc \
     $(DEVICE_PATH)/idc/uinput-goodix.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/uinput-goodix.idc
 
+# IMS
+PRODUCT_PACKAGES += \
+    ims-ext-common \
+    ims_ext_common.xml
+
 # Init
 PRODUCT_PACKAGES += \
     fstab.qcom \
@@ -254,6 +259,11 @@ PRODUCT_PACKAGES += \
     init.recovery.qcom.rc \
     init.target.rc \
     ueventd.qcom.rc
+
+# IPACM
+PRODUCT_PACKAGES += \
+    ipacm \
+    IPACM_cfg.xml
 
 # IRSC
 PRODUCT_COPY_FILES += \
@@ -284,6 +294,10 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video.xml
+
+# Net
+PRODUCT_PACKAGES += \
+    netutils-wrapper-1.0
 
 # OMX
 PRODUCT_PACKAGES += \
@@ -318,32 +332,20 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/qti_whitelist.xml:system/etc/sysconfig/qti_whitelist.xml
 
-# QMI
-PRODUCT_PACKAGES += \
-    libjson
-
 # RenderScript HAL
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
 
 # RIL
 PRODUCT_PACKAGES += \
-    android.hardware.secure_element@1.0 \
-    rild \
+    android.hardware.radio.config@1.1 \
+    android.hardware.radio@1.5 \
+    android.hardware.secure_element@1.1 \
+    libavservices_minijail.vendor \
+    libjson \
+    libprotobuf-cpp-full \
     librmnetctl \
-    libprotobuf-cpp-full
-
-PRODUCT_PACKAGES += \
-    ims-ext-common \
-    ims_ext_common.xml \
-    qti-telephony-hidl-wrapper \
-    qti_telephony_hidl_wrapper.xml \
-    qti-telephony-utils \
-    qti_telephony_utils.xml \
-    telephony-ext
-
-PRODUCT_BOOT_JARS += \
-    telephony-ext
+    libxml2
 
 # Seccomp policy
 PRODUCT_COPY_FILES += \
@@ -355,10 +357,16 @@ PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl:64 \
     android.hardware.sensors@1.0-service
 
-# Tetheroffload
+# Telephony
 PRODUCT_PACKAGES += \
-    ipacm \
-    IPACM_cfg.xml
+    qti_telephony_hidl_wrapper.xml \
+    qti_telephony_utils.xml \
+    qti-telephony-hidl-wrapper \
+    qti-telephony-utils \
+    telephony-ext
+
+PRODUCT_BOOT_JARS += \
+    telephony-ext
 
 # Trust
 PRODUCT_PACKAGES += \
