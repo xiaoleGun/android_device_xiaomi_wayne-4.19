@@ -1451,5 +1451,5 @@ vendor/bin/hw/android.hardware.drm@1.2-service.widevine|1aed116c6cd73ee0c89a5eec
 vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc|dee5b7838ac561a2292e89fc0c4ccd1932224215
 vendor/lib64/libwvhidl.so|0466cd3b2a7b93efd23945e2637430513472ad7c
 
-# Wifi - from jasmine
-vendor/bin/cnss-daemon
+# Wifi - from ginkgo V12.5.1.0.RCOCNXM
+vendor/bin/cnss-daemon|1b840d768c5d49a3a440fffcf526eefa45a7ad5b
