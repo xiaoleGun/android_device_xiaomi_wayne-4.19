@@ -84,25 +84,31 @@ vendor/firmware/dbmd4_va_fw.bin
 vendor/firmware/tas2557_uCDSP.bin
 vendor/firmware/tfa98xx.cnt
 
-# Audio (A2dp) - from jasmine
-vendor/lib/btaudio_offload_if.so|d9a9795e173dffd4b5ee000acac66c1ad6f1648c
-vendor/lib/hw/audio.bluetooth_qti.default.so|c64b101dd33042d2f702ab5059231ca9684fc1d0
-vendor/lib/hw/vendor.qti.hardware.bluetooth_audio@2.0-impl.so|947afef6bf7a05a9a2b45022edfed06bd7c00e64
-vendor/lib/libbluetooth_audio_session_qti.so|53fd0369c50fbaef12c22e25e3073a6fc9f05bb7
+# Bluetooth (A2DP) - from ginkgo V12.5.1.0.RCOCNXM
+vendor/lib/btaudio_offload_if.so|f191ea7ab220e9cca53e017aa99fb10a08c27582
+vendor/lib/hw/audio.bluetooth_qti.default.so|c4a39c069213853448ef9c8df917a74e70be2943
+vendor/lib/hw/vendor.qti.hardware.bluetooth_audio@2.0-impl.so|c8c79a54c30c525b7bcdce7642ee733d8b8b21af
+vendor/lib/libbluetooth_audio_session_qti.so|4c24625126384af08cd670858cdbebd0a780efe1
 
-# Bluetooth - from jasmine
-vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti|57a0a575a2b1b96176fda1bcb84ea8371c4070d1
-vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc|a979981c55f3dcaf6cf2212e71b901ca4d58b959
-vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so|7c0d54f84dd3d2da1806affa7c16dea4bba4d16a
-vendor/lib64/hw/vendor.qti.hardware.bluetooth_sar@1.0-impl.so|71ad8980142e7d8d754607accc0cffd8f5e68dbd
-vendor/lib64/hw/vendor.qti.hardware.btconfigstore@1.0-impl.so|f9dcf9a19a0b601969bcd606bedb8a8419de9d81
-vendor/lib64/libbtnv.so|08fc5c0a38eca63ebe6f0cd854f6525537141d44
-vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so|9346946b110086a6b473c8226e072e9a0cdbb87e
-vendor/lib64/vendor.qti.hardware.fm@1.0.so|073cace3aa8d0ffa025d9df67c45f8a907109339
+# Bluetooth - from ginkgo V12.5.1.0.RCOCNXM
+vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti|c2ea0d91006c5a12efa07d42cae47b3008124571
+vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc|f4ee3b2da2b08647447869ade86ec63f7340accc
+vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so|ea763a5951a646dc018489dfb368cc72829fff44
+vendor/lib64/libbtnv.so|086a227f793822ef3eed15aea21a207c68feb7a9
+vendor/lib64/libbt-hidlclient.so|da867a59f05832dcd5c116fc69e692b6a4d8c77b
+vendor/lib64/vendor.qti.hardware.fm@1.0.so|ee02e7e7a7c474822f575fc76eb3fe6205ffde53
 
-# Bluetooth (aptX) - from jasmine
-system_ext/lib/rfsa/adsp/capi_v2_aptX_Classic.so|8305c614ebf13f84f15989631b8fdfdb9828d9be
-system_ext/lib/rfsa/adsp/capi_v2_aptX_HD.so|eb0e912d25b06f977d5a89345c72d142b7ffb8ae
+# Bluetooth (aptX) - from ginkgo V12.5.1.0.RCOCNXM
+vendor/lib/rfsa/adsp/capi_v2_aptX_Classic.so|59cbdf5d84ba2ff64014941f3ad9e6c2c35e2c06
+vendor/lib/rfsa/adsp/capi_v2_aptX_HD.so|e25f1087edc95d2ff76c1e37787ca37aae2cf175
+
+# Bluetooth (Configstore) - from ginkgo V12.5.1.0.RCOCNXM
+vendor/lib64/hw/vendor.qti.hardware.btconfigstore@2.0-impl.so|fc6265cb719afac0ff0bf6722d7f4cb4b408fd7b
+
+# Bluetooth (SAR) - from ginkgo V12.5.1.0.RCOCNXM
+vendor/lib64/hw/vendor.qti.hardware.bluetooth_sar@1.1-impl.so|624ac893ea428a29df50336f6fe08879b1bb5c21
+vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so|64de735684377aba4a33a3bb0bee25f7999bafcd
+vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.1.so|32c763b353882c9a711a641ff9eb99fe1b0e164d
 
 # Camera - from jasmine
 vendor/etc/camera/camera_config.xml
