@@ -742,27 +742,6 @@ namespace implementation {
 		true,
 	};
 
-	std::vector<struct target_therm_cfg> bcl_conf = {
-		{
-			TemperatureType::BCL_VOLTAGE,
-			{ "vbat" },
-			"vbat",
-			3200,
-			3000,
-			3200,
-			false,
-		},
-		{
-			TemperatureType::BCL_PERCENTAGE,
-			{ "socd" },
-			"socd",
-			90,
-			99,
-			90,
-			true,
-		},
-	};
-
 	const std::unordered_map<int, std::vector<struct target_therm_cfg>>
 		msm_soc_map = {
 		{417, sensor_cfg_bengal}, // bengal
@@ -831,7 +810,6 @@ namespace implementation {
 	{
 		std::unordered_map<int, std::vector<struct target_therm_cfg>>::const_iterator it;
 		std::vector<struct target_therm_cfg>::iterator it_vec;
-		bool bcl_defined = false;
 		std::string soc_val;
 
 		if (cmnInst.readFromFile(socIDPath, soc_val) <= 0) {
@@ -849,16 +827,8 @@ namespace implementation {
 			return;
 		}
 		thermalConfig = add_target_config(soc_id, it->second);
-		for (it_vec = thermalConfig.begin();
-				it_vec != thermalConfig.end(); it_vec++) {
-			if (it_vec->type == TemperatureType::BCL_PERCENTAGE)
-				bcl_defined = true;
-		}
 
 		thermalConfig.push_back(bat_conf);
-		if (!bcl_defined)
-			thermalConfig.insert(thermalConfig.end(),
-				bcl_conf.begin(), bcl_conf.end());
 		LOG(DEBUG) << "Total sensors:" << thermalConfig.size();
 	}
 }  // namespace implementation
