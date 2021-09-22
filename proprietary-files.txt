@@ -1047,7 +1047,6 @@ vendor/lib/libllvm-qcom.so|d0758cdf45e32d41d7ccd8b18b853b35eecac281
 vendor/lib/libOpenCL.so|df83abbc452249d07b52bf67c1c9b537c76019af
 vendor/lib/librs_adreno.so|81ac0aaaf36c049113e1dec7640d962a07e07f7f
 vendor/lib/librs_adreno_sha1.so|f4665879e0d9ef4e448f645f2b579b1ba6dc2eb5
-vendor/lib/libRSDriver_adreno.so|9c596bbda0ce022143a037c9d0eddf9aadab8533
 vendor/lib64/egl/eglSubDriverAndroid.so|cd76c111254eaf809defcd40d4a1d6aa0f140c0e
 vendor/lib64/egl/libEGL_adreno.so|35c319854e143d7bcfacea9c499897ca846f1b3a
 vendor/lib64/egl/libGLESv1_CM_adreno.so|603accd676f859523e22f5043be216a8d4a8a937
@@ -1066,7 +1065,6 @@ vendor/lib64/libllvm-qcom.so|2643fe03a65fed6187e9e9104c4dff484ad7e095
 vendor/lib64/libOpenCL.so|21897637e702c4a97eb748934e9f1fc8880881c5
 vendor/lib64/librs_adreno.so|c84431c31efd21b30d95ebe9ea3dc4792f0de4ac
 vendor/lib64/librs_adreno_sha1.so|06535b728885e2bf161b1cca48e8e5928925310a
-vendor/lib64/libRSDriver_adreno.so|d6d85a5af4f82e3a64bda4929ab4ed8bde6b7a3d
 
 # Graphics firmware - from jasmine
 vendor/firmware/a512_zap.b00
