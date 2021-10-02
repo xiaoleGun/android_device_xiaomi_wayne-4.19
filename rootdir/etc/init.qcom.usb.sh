@@ -1,5 +1,5 @@
 #!/vendor/bin/sh
-# Copyright (c) 2012-2018, The Linux Foundation. All rights reserved.
+# Copyright (c) 2012-2018, 2020 The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are
@@ -43,15 +43,11 @@ esoc_name=`cat /sys/bus/esoc/devices/esoc0/esoc_name 2> /dev/null`
 
 target=`getprop ro.board.platform`
 
-if [ -f /sys/class/android_usb/f_mass_storage/lun/nofua ]; then
-	echo 1  > /sys/class/android_usb/f_mass_storage/lun/nofua
-fi
-
 #
 # Override USB default composition
 #
 # If USB persist config not set, set default configuration
-if [ "$(getprop persist.vendor.usb.config)" == "" -a \
+if [ "$(getprop persist.vendor.usb.config)" == "" -a "$(getprop ro.build.type)" != "user" -a \
 	"$(getprop init.svc.vendor.usb-gadget-hal-1-0)" != "running" ]; then
     if [ "$esoc_name" != "" ]; then
 	  setprop persist.vendor.usb.config diag,diag_mdm,qdss,qdss_mdm,serial_cdev,dpl,rmnet,adb
@@ -105,7 +101,7 @@ if [ "$(getprop persist.vendor.usb.config)" == "" -a \
 	              "sdm845" | "sdm710")
 		          setprop persist.vendor.usb.config diag,serial_cdev,rmnet,dpl,adb
 		      ;;
-	              "msmnile" | "sm6150" | "trinket" | "lito" | "atoll" | "bengal")
+	              "msmnile" | "sm6150" | "trinket" | "lito" | "atoll" | "bengal" | "lahaina" | "holi")
 			  setprop persist.vendor.usb.config diag,serial_cdev,rmnet,dpl,qdss,adb
 		      ;;
 	              *)
@@ -119,6 +115,12 @@ if [ "$(getprop persist.vendor.usb.config)" == "" -a \
 	      ;;
 	  esac
       fi
+fi
+
+# This check is needed for GKI 1.0 targets where QDSS is not available
+if [ "$(getprop persist.vendor.usb.config)" == "diag,serial_cdev,rmnet,dpl,qdss,adb" -a \
+     ! -d /config/usb_gadget/g1/functions/qdss.qdss ]; then
+      setprop persist.vendor.usb.config diag,serial_cdev,rmnet,dpl,adb
 fi
 
 # Start peripheral mode on primary USB controllers for Automotive platforms
@@ -135,30 +137,13 @@ case "$soc_machine" in
     ;;
 esac
 
-# set rndis transport to BAM2BAM_IPA for 8920 and 8940
-if [ "$target" == "msm8937" ]; then
-	if [ ! -d /config/usb_gadget ]; then
-	   case "$soc_id" in
-		"313" | "320")
-		   echo BAM2BAM_IPA > /sys/class/android_usb/android0/f_rndis_qc/rndis_transports
-		;;
-		*)
-		;;
-	   esac
-	fi
-fi
-
 # check configfs is mounted or not
 if [ -d /config/usb_gadget ]; then
-	product_string=`cat /config/usb_gadget/g1/strings/0x409/product` 2> /dev/null
-	if [ "product_string" == "" ]; then
-		# Chip-serial is used for unique MSM identification in Product string
-		msm_serial=`cat /sys/devices/soc0/serial_number`;
-		msm_serial_hex=`printf %08X $msm_serial`
-		machine_type=`cat /sys/devices/soc0/machine`
-		product_string="$machine_type-$soc_hwplatform _SN:$msm_serial_hex"
-		echo "$product_string" > /config/usb_gadget/g1/strings/0x409/product
-	fi
+	# Chip-serial is used for unique MSM identification in Product string
+	msm_serial=`cat /sys/devices/soc0/serial_number`;
+	msm_serial_hex=`printf %08X $msm_serial`
+	machine_type=`cat /sys/devices/soc0/machine`
+	setprop vendor.usb.product_string "$machine_type-$soc_hwplatform _SN:$msm_serial_hex"
 
 	# ADB requires valid iSerialNumber; if ro.serialno is missing, use dummy
 	serialnumber=`cat /config/usb_gadget/g1/strings/0x409/serialnumber 2> /dev/null`
