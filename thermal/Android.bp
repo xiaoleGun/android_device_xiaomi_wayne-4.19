@@ -1,12 +1,12 @@
 cc_binary {
-	name: "android.hardware.thermal@2.0-service.qti",
+	name: "android.hardware.thermal@2.0-service.wayne.qti",
 	defaults: [
 		"hidl_defaults",
 	],
 	vendor: true,
 	relative_install_path: "hw",
-	init_rc: ["android.hardware.thermal@2.0-service.qti.rc"],
-	vintf_fragments: ["android.hardware.thermal@2.0-service.qti.xml"],
+	init_rc: ["android.hardware.thermal@2.0-service.wayne.qti.rc"],
+	vintf_fragments: ["android.hardware.thermal@2.0-service.wayne.qti.xml"],
 	srcs: [
 		"service.cpp",
 		"thermal.cpp",
