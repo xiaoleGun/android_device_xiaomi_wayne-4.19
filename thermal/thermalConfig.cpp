@@ -211,6 +211,33 @@ namespace implementation {
 			40000,
 			true,
 		},
+		{
+			TemperatureType::BCL_VOLTAGE,
+			{ "vbat_adc" },
+			"vbat",
+			3500,
+			3300,
+			3500,
+			false,
+		},
+		{
+			TemperatureType::BCL_CURRENT,
+			{ "ibat-high" },
+			"ibat",
+			4200,
+			4400,
+			4200,
+			true,
+		},
+		{
+			TemperatureType::BCL_PERCENTAGE,
+			{ "soc" },
+			"soc",
+			10,
+			2,
+			10,
+			false,
+		},
 	};
 
 	std::vector<std::string> cpu_sensors_lito =
