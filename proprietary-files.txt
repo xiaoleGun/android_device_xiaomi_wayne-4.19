@@ -1236,7 +1236,6 @@ vendor/lib/libqmiservices.so|d1e3378b5ea0983daa4b25935b64070dc6cfaf6b
 # Radio - from ginkgo V12.5.1.0.RCOCNXM
 -system_ext/app/DeviceInfo/DeviceInfo.apk|9f0039d6a431055d59a3f70d6237481dc0794908
 -system_ext/app/QtiTelephonyService/QtiTelephonyService.apk|20da64a1fbb4d9c04c763333c4d9a0b7c1053fb9
--system_ext/app/datastatusnotification/datastatusnotification.apk|9132b76d83f385faabf79e756cd43cf1cdaee378
 -system_ext/app/embms/embms.apk|41dff63c1adb97aba9220e9942aac4575421146e
 -system_ext/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk|16cfcf7cd4076be0e0c97c8514305e03fbf5f571
 system_ext/etc/permissions/telephony_system-ext_privapp-permissions-qti.xml|4f0056403f56928b8c75a617ba582f17061f89ae
