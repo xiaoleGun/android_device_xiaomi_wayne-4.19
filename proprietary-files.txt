@@ -32,12 +32,12 @@ vendor/lib/rfsa/adsp/libscveT2T_skel.so|e8083e551a17e880acb9d72ceb725b762cadf0d2
 vendor/lib/rfsa/adsp/dirac_resource.dar|7728d5b2ee2927a01df5bd6d7edae3736186c844
 vendor/lib/rfsa/adsp/libdirac-capiv2.so|e56031dfaee094d5267e3cc16625cfceaa07cc27
 
-# Alarm - from jasmine
--product/app/PowerOffAlarm/PowerOffAlarm.apk|46387fe02067df3c4c09ec49fff7737473ea1145
-vendor/bin/hw/vendor.qti.hardware.alarm@1.0-service|faccc2a7d94d486c2f61a5fe85f5c4598b4147a7
-vendor/etc/init/vendor.qti.hardware.alarm@1.0-service.rc|c9877b6cae0353d5fdea5bc23dba77101b3d6980
-vendor/lib64/hw/vendor.qti.hardware.alarm@1.0-impl.so|1e2631850cc97dfedbde50a9d0d55c8d14881b44
-vendor/lib64/vendor.qti.hardware.alarm@1.0.so|271f85f1c6dc0c65dc3aa9a8603f3910fa50e1ea
+# Alarm - from S62Pro RKQ1.210406.002
+-product/app/PowerOffAlarm/PowerOffAlarm.apk|52e403ee5944bbb6c6952efa2814d98bd5bb8b17
+vendor/bin/hw/vendor.qti.hardware.alarm@1.0-service|586b142f9bc4bf3098b4962682c4de1c13810f9b
+vendor/etc/init/vendor.qti.hardware.alarm@1.0-service.rc|a03a9a1c818595b19272ea6ffb466e23a7fc3b05
+vendor/lib64/hw/vendor.qti.hardware.alarm@1.0-impl.so|4129558506dc078c03679ba362acda4755457742
+vendor/lib64/vendor.qti.hardware.alarm@1.0.so|dcfdc04b4e0c6e6a4ffa60e1694268bd0327e65c
 
 # ANT+ - from jasmine
 -lib/libantradio.so:system_ext/lib/libantradio.so|37c36369eeab19d5e6266d9d25ae0de9bb59502d
