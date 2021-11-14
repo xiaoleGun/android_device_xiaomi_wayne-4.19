@@ -114,12 +114,5 @@ $(IMS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(IMS_SYMLINKS)
 
-AUDIO_PRIMARY_SYMLINK := $(TARGET_OUT_VENDOR)/lib/hw/audio.primary.bengal.so
-$(AUDIO_PRIMARY_SYMLINK): $(LOCAL_INSTALLED_MODULE)
-	@mkdir -p $(dir $@)
-	$(hide) ln -sf /system/vendor/lib/hw/audio.primary.sdm660.so $(TARGET_OUT_VENDOR)/lib/hw/$(notdir $@)
-
-ALL_DEFAULT_INSTALLED_MODULES += $(AUDIO_PRIMARY_SYMLINK)
-
 include $(call all-makefiles-under,$(LOCAL_PATH))
 endif

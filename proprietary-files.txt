@@ -46,18 +46,18 @@ product/lib64/com.qualcomm.qti.ant@1.0.so:system_ext/lib64/com.qualcomm.qti.ant@
 vendor/lib64/com.qualcomm.qti.ant@1.0.so|181a8ab9b1d40705d3151821b53732c5566a2848
 vendor/lib64/hw/com.qualcomm.qti.ant@1.0-impl.so|aa08f9ec51392ed841f60ad08b7f083312c8c5ee
 
-# Audio - from jasmine
-vendor/lib/libacdb-fts.so|7e542fe676bdeaf0347dada88683a67cb861d96d
-vendor/lib/libacdbloader.so|ce2494e403e79552793d65f344ce9f79b52ba51a
-vendor/lib/libacdbrtac.so|bacaa968f7da0ed014e6594b928823f0d08a06e6
-vendor/lib/libadiertac.so|ebdd9b6c4e64b38ef39401b1a1e03696583440dc
-vendor/lib/libadm.so|d7c7d22c4fe53312e1e49fbffd587b25fdf0ac89
-vendor/lib/libaudcal.so|f935b8c33972b8cee40f760478f1b64a54705683
-vendor/lib/libqtigef.so|e0c548247e923f1e972e7765a678566dd874afb7
-vendor/lib/soundfx/libasphere.so|b1b26f99d9fbfe75f109349de5505ca39ccd4c8c
-vendor/lib/soundfx/libqcbassboost.so|73339450a42b598a3c13e67b3d4a2266d986fea2
-vendor/lib/soundfx/libqcreverb.so|eb437cd5e264b1adb4546c6a5617c5da17be5839
-vendor/lib/soundfx/libqcvirt.so|ee9eaa81bb24ac0379e06b44ef257967a4d32614
+# Audio - from S62Pro RKQ1.210406.002
+vendor/lib/libacdb-fts.so|96db6fe2e443326705a37ac6e2e394f03144a386
+vendor/lib/libacdbloader.so|4d0743fe7f3eb1d2318feafc06363ffb527ca942
+vendor/lib/libacdbrtac.so|b6484ac64f20c4a0f605fb4901d33b8b27a95a74
+vendor/lib/libadiertac.so|b0a0ebc89be729e37fe34ceaa05f97a1bc9560a6
+vendor/lib/libadm.so|2fd429c8066572cc49262fe0d452c78706197d54
+vendor/lib/libaudcal.so|5361c538d20634221c317851c33b0842ced93fca
+vendor/lib/libqtigef.so|977cbb704f6b2bae7f4e2f17b8c15146a6cacffb
+vendor/lib/soundfx/libasphere.so|90940fca6f4b84794046513c6c6868eca9470066
+vendor/lib/soundfx/libqcbassboost.so|8e92c5d40cd23f503840b055d71336e4c9daecc0
+vendor/lib/soundfx/libqcreverb.so|7e05f1f4bdd2947dac3aefd871437d289581078b
+vendor/lib/soundfx/libqcvirt.so|03a8b95eb77811e3861307ab1451f4144bba2572
 
 # Audio ACDB - from jasmine
 vendor/etc/acdbdata/MTP/MTP_Bluetooth_cal.acdb
@@ -1132,15 +1132,15 @@ vendor/lib/hw/android.hardware.keymaster@3.0-impl-qti.so
 vendor/etc/init/android.hardware.keymaster@3.0-service-qti.rc
 vendor/bin/hw/android.hardware.keymaster@3.0-service-qti
 
-# Listen - from lemon 21.4.13
-vendor/lib/hw/sound_trigger.primary.bengal.so:vendor/lib/hw/sound_trigger.primary.sdm660.so|d7532a84cd824bc65a0ae4c214ee590decb4151e
-vendor/lib/libadpcmdec.so|491fedbdcf9a395340ce4142c277156c0056bcf8
-vendor/lib/libgcs-calwrapper.so|d2e93c944c90dd21fe26ff8e23acbaa399ae0ea4
-vendor/lib/libgcs-ipc.so|13d1d48a50c760a11eeacef1b5eae93e4d1ab47b
-vendor/lib/libgcs-osal.so|0e762ecaf6b0d59e5322323b0fef17e8c76d0b4a
-vendor/lib/libgcs.so|f21cfb8ab944d57b15374b9a7a7eeac7a022232a
-vendor/lib/liblistensoundmodel2.so|301dbebde95b3f7ac5dc0d9667d66f10d60f49fc
-vendor/lib/libsmwrapper.so|a57ed968010731a91f0c42321387ee1ab8d878cc
+# Listen - from S62Pro RKQ1.210406.002
+vendor/lib/hw/sound_trigger.primary.sdm660.so|5464b9658c9b819e18f3ad6703471278521a79d1
+vendor/lib/libadpcmdec.so|b3ec2cc197b682aa6ae7e1da9c8f25cc1aa75750
+vendor/lib/libgcs-calwrapper.so|a80d1d6b0b6e76083b0ca98d690c5cb46e113904
+vendor/lib/libgcs-ipc.so|177f711fc9e01970ef17e9f8a79776ef31d8c973
+vendor/lib/libgcs-osal.so|413c0b9b767d8aa1da477f89b162d5b13604e0cf
+vendor/lib/libgcs.so|136b036d645ce31c3265cf2aed00c472ecec37e4
+vendor/lib/liblistensoundmodel2.so|375948b769905112429ae4fb2979be0b1e363950
+vendor/lib/libsmwrapper.so|0fbf611c9a597f7c70bfd2363dfc7f465d1dafd5
 
 # Media - from Cat S62Pro sdm660_64-user 11 RKQ1.210406.002 1.015.00
 lib/libFileMux.so|22005fb1595b2b76e199b82ff3790c1bc3d54a20
