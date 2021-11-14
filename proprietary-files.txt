@@ -1,36 +1,36 @@
 # jasmine package version: V11.0.28.0.QDIMIXM, unless stated otherwise
 
-# ADSP - from lemon 21.4.13
-vendor/bin/adsprpcd|1d9477a7789658ab3949e770b90269032e038468
+# ADSP - from S62Pro RKQ1.210406.002
+vendor/bin/adsprpcd|5e246a6f5d2dca27e29b233a17e4673532191b95
 vendor/etc/init/vendor.qti.adsprpc-service.rc|54588df8e7da58c66838028d2284986b966c2d37
-vendor/lib/libadsp_default_listener.so|0376a56ab5d88e5d118e37f6e6371b30746a97e2
-vendor/lib/libadsprpc.so|4924cf69b91cbece9be76262d24ac1e781839d66
-vendor/lib/libcdsprpc.so|61ff904c3f7b2b12aa107d9a08209f2822e0e854
-vendor/lib/libfastcvopt.so|3cd704b8a6f215a1d531f2332188794d582f25c0
-vendor/lib/libfastcvdsp_stub.so|6ccfd797a035075db44aaf288a87d1eb041288b7
-vendor/lib/libmdsprpc.so|17ceb98d09e62f1ff9d36ff36c43ce2bcbe3f452
-vendor/lib/libsdsprpc.so|82ac98c24b9473c2ab013ce064e8c0f0b13de880
-vendor/lib64/libadsp_default_listener.so|7f66bac08fa5edc53784591e0f99f390e095099b
-vendor/lib64/libadsprpc.so|ece35b1d9c756adbed49d5ab44ba23696c9e5f45
-vendor/lib64/libmdsprpc.so|96395c1eb8a56f8f0b06215e2be2cb3c6e89a3da
-vendor/lib64/libsdsprpc.so|4c3786d5fbf76f23fd839b389db57fe7c840ead1
+vendor/lib/libadsp_default_listener.so|c822c536d9776ca2d60bf5a158531544f20c4829
+vendor/lib/libadsprpc.so|3da7471cbfb2f26bb997d21098282697ee1965e4
+vendor/lib/libcdsprpc.so|4ef30602663e13d44e1c7dd09db927fa4e6947ae
+vendor/lib/libfastcvopt.so|4f4a2297c4071c3b22b967000ecc1f4ea1b9d203
+vendor/lib/libmdsprpc.so|50380552c78713d9678978b6654c20401b5040f6
+vendor/lib/libsdsprpc.so|dcff191dcb9af4cc6f9a54c4eca6664bf6f965a4
+vendor/lib64/libadsp_default_listener.so|41f91a64209c0431d87cee08999c5cfdc5dedb38
+vendor/lib64/libadsprpc.so|14348488a9d8a30f6787d5b11bf4d4857d23e58e
+vendor/lib64/libmdsprpc.so|d0252bb9747bb90cbb7e8788a9906ecbed44cb60
+vendor/lib64/libsdsprpc.so|58ee0bd2d4b5c40afeb7d654dd020f09676fe9d9
 
-# ADSP modules - from jasmine
-vendor/lib/rfsa/adsp/dirac_resource.dar|7728d5b2ee2927a01df5bd6d7edae3736186c844
+# ADSP modules - from S62Pro RKQ1.210406.002
 vendor/lib/rfsa/adsp/libadsp_fd_skel.so|677d2932dac248049f031fc5893163e22b49439a
 vendor/lib/rfsa/adsp/libadsp_hvx_add_constant.so|26fb64a92d48e801a31a867976d325efa366a255
 vendor/lib/rfsa/adsp/libadsp_hvx_skel.so|05776246445316aea822eaa9cb6ae7a47b23c9aa
 vendor/lib/rfsa/adsp/libapps_mem_heap.so|fd362c6b0e30f62cc3fc4566855f46706d2c3c50
-vendor/lib/rfsa/adsp/libdirac-capiv2.so|e56031dfaee094d5267e3cc16625cfceaa07cc27
 vendor/lib/rfsa/adsp/libdspCV_skel.so|a788855fe98d5f6ea73d2693c983efb29165eae1
 vendor/lib/rfsa/adsp/libfastcvadsp.so|603711dc1af1f1952d8978a5b494b1541b24c54c
-vendor/lib/rfsa/adsp/libfastcvadsp_skel.so|a06a3f52e89d219d2da0c7205e714cd7429b267c
+vendor/lib/rfsa/adsp/libfastcvadsp_skel.so|57eff075eaf7a9fb9260f6cf5b918b2e7495fc6f
 vendor/lib/rfsa/adsp/libFastRPC_AUE_Forward_skel.so|f4d8675a46c5e52add8f8e90e35b29cd33ac582b
 vendor/lib/rfsa/adsp/libFastRPC_UTF_Forward_800h_skel.so|c240d45c3a5fc37b964c4adab06f4cb0bfda62f5
 vendor/lib/rfsa/adsp/libFastRPC_UTF_Forward_Qtc2_skel.so|b9f68e320d24e9c51871a2056e1f47239bd1cb40
-vendor/lib/rfsa/adsp/libscveBlobDescriptor_skel.so|99752b14bc669589f598b2c555af96834147e41e
 vendor/lib/rfsa/adsp/libscveObjectSegmentation_skel.so|d2174a2a4a680e93ee4262b5e6d99fd3c398620c
-vendor/lib/rfsa/adsp/libscveT2T_skel.so|487f830aca26c85ef79c8b599b2f03668ab732b5
+vendor/lib/rfsa/adsp/libscveT2T_skel.so|e8083e551a17e880acb9d72ceb725b762cadf0d2
+
+# ADSP modules - from jasmine
+vendor/lib/rfsa/adsp/dirac_resource.dar|7728d5b2ee2927a01df5bd6d7edae3736186c844
+vendor/lib/rfsa/adsp/libdirac-capiv2.so|e56031dfaee094d5267e3cc16625cfceaa07cc27
 
 # Alarm - from jasmine
 -product/app/PowerOffAlarm/PowerOffAlarm.apk|46387fe02067df3c4c09ec49fff7737473ea1145
@@ -952,6 +952,13 @@ vendor/lib64/libsecureui_svcsock.so|6af612f057f4f28720d6db9b300b58c883da6539
 vendor/lib64/libSecureUILib.so|b98555b76083a897fc9bbfc27778750d2d47817a
 vendor/lib64/libssd.so|774488b88c37053067b3cad551ac95360c03edd3
 vendor/lib64/libStDrvInt.so|6091f1f496b87730f9a77e9ede504c4fa99c608a
+
+# DSP - from S62Pro RKQ1.210406.002
+vendor/bin/dspservice|a8eb76af6150bbf29c12b76b00ab469b99f563f7
+vendor/etc/init/vendor.qti.hardware.dsp@1.0-service.rc|fbf2bb38ca6bdddf98c7123da9e1f263a4eec55f
+vendor/etc/seccomp_policy/vendor.qti.hardware.dsp.policy|f060101b26d3674bb173e5fc95e118f56a8ac15d
+vendor/lib/vendor.qti.hardware.dsp@1.0.so|f902e821229cd1fff50ebfba99b0a068cbf74a56
+vendor/lib64/vendor.qti.hardware.dsp@1.0.so|223a9268bd92bd80dab3df02fbef38ea86bcbadd
 
 # Fingerprint firmware - from jasmine V10.0.2.0.PDIMIFJ
 etc/firmware/goodixfp.b00:vendor/firmware/goodixfp.b00|c5c3594b47dffb3aadb81abced42518d24637893
