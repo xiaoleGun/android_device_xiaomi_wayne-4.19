@@ -1386,18 +1386,15 @@ vendor/lib64/vendor.qti.ims.rcsconfig@2.0.so|8555e548d142fad0238e74e57383bb5a65e
 vendor/lib64/vendor.qti.imsrtpservice@3.0.so|25517caf74691b812320b46b477a3f4161cc1bcf
 vendor/lib64/vendor.qti.imsrtpservice@3.0-service-Impl.so|346a6f516637632cce8297f78227172d54d26040
 
-# Sensors - from jasmine
-vendor/bin/sensors.qti
-vendor/etc/sensors/hals.conf
-vendor/etc/sensors/sensor_def_qcomdev.conf
-vendor/lib/libsensor_reg.so
-vendor/lib/libsensor1.so
-vendor/lib64/libsensor_reg.so
-vendor/lib64/libsensor1.so
-
-# Sensors - from PL2_sprout-user 10 QKQ1.190828.002 00WW_4_150
-vendor/lib/sensors.ssc.so|bee13b2ad7f1ef0d2cf63708fa38ad76877ea287
-vendor/lib64/sensors.ssc.so|42577aa881baa287ec037c0e59972ad0e0358b08
+# Sensors - from S62Pro RKQ1.210406.002
+vendor/bin/sensors.qti|04d11860e030b6176056b6e862b9e4ee9ba2289a
+vendor/etc/sensors/hals.conf|bf3677cbfa5ce5735662e8c259cb027969f65c87
+vendor/lib/libsensor_reg.so|40a7b8e675352be825806017766b4fed3a3e128d
+vendor/lib/libsensor1.so|0b74f64339245b2bb9e08aa97a78bd8d344463c5
+vendor/lib/sensors.ssc.so|7cbe5294892d5b7a514141f6a902f1d9f1b1ca6a
+vendor/lib64/libsensor_reg.so|c09110fd11f384040c31b7fd5c2b187aa901168c
+vendor/lib64/libsensor1.so|9438649176e37dfa406f4d4858ad31441ad4c3aa
+vendor/lib64/sensors.ssc.so|6934f0fd9e5e74356d9f18af0cbaa28164e697f6
 
 # Soter - from S62Pro RKQ1.210406.002
 vendor/bin/hw/vendor.qti.hardware.soter@1.0-service|a6f1c35671a2f102ff95acecc70eefa3a7ebd432
