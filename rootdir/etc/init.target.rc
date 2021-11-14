@@ -269,10 +269,11 @@ on charger
     setprop sys.usb.configfs 1
     start power_off_alarm
 
-service vendor.hvdcp_opti /system/vendor/bin/hvdcp_opti
-     class main
-     user root
-     group system wakelock
+service vendor.hvdcp_opti /vendor/bin/hvdcp_opti
+    class main
+    user system
+    group system wakelock
+    capabilities BLOCK_SUSPEND WAKE_ALARM
 
 # Workaround for camera HAL can not read sys property
 on property:sys.camera.face.unlock=*
