@@ -38,3 +38,16 @@
 
 # Thermal
 /data/vendor/thermal(/.*)?                      u:object_r:thermal_data_file:s0
+
+# Wakeup
+/sys/devices/platform/soc/800f000\.qcom,spmi/spmi-0/spmi0-00/800f000\.qcom,spmi:qcom,pm660@0:qcom,pm660_rtc/rtc/rtc0/wakeup[0-9]+(/.*)?                     u:object_r:sysfs_wakeup:s0
+/sys/devices/platform/soc/800f000\.qcom,spmi/spmi-0/spmi0-00/800f000\.qcom,spmi:qcom,pm660@0:qpnp,fg/power_supply/bms/wakeup[0-9]+(/.*)?                    u:object_r:sysfs_wakeup:s0
+/sys/devices/platform/soc/800f000\.qcom,spmi/spmi-0/spmi0-00/800f000\.qcom,spmi:qcom,pm660@0:qcom,qpnp-smb2/power_supply/battery/wakeup[0-9]+(/.*)?         u:object_r:sysfs_wakeup:s0
+/sys/devices/platform/soc/800f000\.qcom,spmi/spmi-0/spmi0-00/800f000\.qcom,spmi:qcom,pm660@0:qcom,qpnp-smb2/power_supply/dc/wakeup[0-9]+(/.*)?              u:object_r:sysfs_wakeup:s0
+/sys/devices/platform/soc/800f000\.qcom,spmi/spmi-0/spmi0-00/800f000\.qcom,spmi:qcom,pm660@0:qcom,qpnp-smb2/power_supply/main/wakeup[0-9]+(/.*)?            u:object_r:sysfs_wakeup:s0
+/sys/devices/platform/soc/800f000\.qcom,spmi/spmi-0/spmi0-00/800f000\.qcom,spmi:qcom,pm660@0:qcom,qpnp-smb2/power_supply/pc_port/wakeup[0-9]+(/.*)?         u:object_r:sysfs_wakeup:s0
+/sys/devices/platform/soc/800f000\.qcom,spmi/spmi-0/spmi0-00/800f000\.qcom,spmi:qcom,pm660@0:qcom,qpnp-smb2/power_supply/usb/wakeup[0-9]+(/.*)?             u:object_r:sysfs_wakeup:s0
+/sys/devices/platform/soc/c176000\.i2c/i2c-2/2-001d/power_supply/parallel/wakeup[0-9]+(/.*)?                                                                u:object_r:sysfs_wakeup:s0
+/sys/devices/platform/soc/ca0c000\.qcom,cci/ca0c000\.qcom,cci:qcom,camera@0/video4linux/video[0-9]/wakeup[0-9]+(/.*)?                                       u:object_r:sysfs_wakeup:s0
+/sys/devices/platform/soc/ca0c000\.qcom,cci/ca0c000\.qcom,cci:qcom,camera@1/video4linux/video[0-9]/wakeup[0-9]+(/.*)?                                       u:object_r:sysfs_wakeup:s0
+/sys/devices/platform/soc/ca0c000\.qcom,cci/ca0c000\.qcom,cci:qcom,camera@2/video4linux/video[0-9]/wakeup[0-9]+(/.*)?                                       u:object_r:sysfs_wakeup:s0
