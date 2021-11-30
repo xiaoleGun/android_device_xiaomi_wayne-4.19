@@ -5,6 +5,9 @@ genfscon sysfs /devices/platform/soc/c176000.i2c/i2c-2/2-001d            u:objec
 genfscon sysfs /devices/platform/soc/ca0c000.qcom,cci/ca0c000.qcom,cci:qcom,camera@3/video4linux/video5/name                                     u:object_r:sysfs_graphics:s0
 genfscon sysfs /camera_sensorid/sensorid                        u:object_r:sysfs_graphics:s0
 
+# Display
+genfscon sysfs /devices/virtual/graphics/fb0/idle_state                  u:object_r:sysfs_graphics:s0
+
 # Fingerprint
 genfscon sysfs /devices/platform/soc/soc:fingerprint_fpc/device_prepare  u:object_r:sysfs_fingerprint:s0
 genfscon sysfs /devices/platform/soc/soc:fingerprint_fpc/fingerdown_wait u:object_r:sysfs_fingerprint:s0
