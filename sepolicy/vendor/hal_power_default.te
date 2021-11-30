@@ -6,10 +6,14 @@ allow hal_power_default sysfs_touchpanel:file rw_file_perms;
 # To do powerhint on nodes defined in powerhint.json
 allow hal_power_default cgroup:dir search;
 allow hal_power_default cgroup:file rw_file_perms;
+allow hal_power_default self:capability sys_admin;
 allow hal_power_default sysfs_devices_system_cpu:file rw_file_perms;
 allow hal_power_default sysfs_devfreq:dir search;
 allow hal_power_default sysfs_devfreq:file rw_file_perms;
+allow hal_power_default sysfs_devfreq:lnk_file rw_file_perms;
+allow hal_power_default sysfs_graphics:file rw_file_perms;
 allow hal_power_default sysfs_kgsl:file rw_file_perms;
+allow hal_power_default sysfs_kgsl:lnk_file rw_file_perms;
 
 # To get/set powerhal state property
 set_prop(hal_power_default, vendor_power_prop)
