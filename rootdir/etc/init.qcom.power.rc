@@ -122,6 +122,11 @@ on enable-low-power
     write /proc/sys/kernel/sched_group_downmigrate 120
     write /proc/sys/kernel/sched_walt_rotate_big_tasks 1
 
+    write /sys/block/mmcblk0/bdi/read_ahead_kb 128
+    write /sys/block/dm-0/bdi/read_ahead_kb 128
+    write /sys/block/dm-1/bdi/read_ahead_kb 128
+    write /sys/block/dm-2/bdi/read_ahead_kb 128
+
     # Enable bus-dcvs
     write /sys/devices/platform/soc/soc:qcom,cpu-cpu-ddr-bw/devfreq/soc:qcom,cpu-cpu-ddr-bw/governor "bw_hwmon"
     write /sys/devices/platform/soc/soc:qcom,cpu-cpu-ddr-bw/devfreq/soc:qcom,cpu-cpu-ddr-bw/polling_interval 50
