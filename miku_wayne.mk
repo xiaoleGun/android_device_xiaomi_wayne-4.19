@@ -5,6 +5,12 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+# Maintaier
+MIKU_MASTER := xiaoleGun
+
+# Miku UI OFFICIAL
+TARGET_MIKU_BUILD_VARIANT := OFFICIAL
+
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
