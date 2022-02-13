@@ -36,7 +36,7 @@
 #include <fcntl.h>
 #include <stdlib.h>
 #include <linux/media.h>
-#include <media/msm_cam_sensor.h>
+#include <media/msm_cam_sensor-oss.h>
 #include <dlfcn.h>
 #include "fdleak.h"
 #include "memleak.h"

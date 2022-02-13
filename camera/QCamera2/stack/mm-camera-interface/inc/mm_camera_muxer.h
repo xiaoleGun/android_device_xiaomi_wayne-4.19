@@ -31,7 +31,7 @@
 #define __MM_CAMERA_MUXER_H__
 
 // System dependencies
-#include <media/msmb_camera.h>
+#include <media/msmb_camera-oss.h>
 
 // Camera dependencies
 #include "cam_intf.h"

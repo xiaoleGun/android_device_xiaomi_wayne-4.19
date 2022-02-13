@@ -32,7 +32,7 @@
 
 // System dependencies
 #include <string.h>
-#include <media/msmb_isp.h>
+#include <media/msmb_isp-oss.h>
 #include <stdbool.h>
 
 // Camera dependencies
