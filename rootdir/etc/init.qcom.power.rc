@@ -145,9 +145,12 @@ on enable-low-power
 
     start dcvs-sh
 
-    # Set cpuset parameters
-    write /dev/cpuset/background/cpus 0-3
+    # Setup final cpuset
+    write /dev/cpuset/top-app/cpus 0-7
+    write /dev/cpuset/foreground/cpus 0-3,6-7
+    write /dev/cpuset/background/cpus 0-1
     write /dev/cpuset/system-background/cpus 0-3
+    write /dev/cpuset/restricted/cpus 0-3
 
     # Turn on sleep modes
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
