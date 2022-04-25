@@ -1,3 +1,6 @@
+# Bluetooth
+bluetooth.device.class_of_device=90,2,12
+
 # Charger
 ro.charger.disable_init_blank=true
 ro.charger.enable_suspend=true
