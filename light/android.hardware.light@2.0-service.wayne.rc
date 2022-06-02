@@ -15,7 +15,7 @@ on early-boot
 
     chown system system /sys/class/leds/lcd-backlight/max_brightness
 
-service vendor.light-hal-2-0 /vendor/bin/hw/android.hardware.light@2.0-service.xiaomi_sdm660
+service vendor.light-hal-2-0 /vendor/bin/hw/android.hardware.light@2.0-service.wayne
     interface android.hardware.light@2.0::ILight default
     class hal
     user system
