@@ -75,4 +75,7 @@
 
     <!-- Integer indicating maximum hardware supported client number of soft ap -->
     <integer translatable="false" name="config_wifiHardwareSoftapMaxClientCount">32</integer>
+
+    <!-- Default access point SSID used for tethering -->
+    <string name="wifi_tether_configure_ssid_default" translatable="false">Xiaomi Mi 6X</string>
 </resources>

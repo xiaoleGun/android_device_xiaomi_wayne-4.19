@@ -4,20 +4,22 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+DEVICE_PATH := device/xiaomi/wayne
+
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-lineage
+    $(DEVICE_PATH)/overlay \
+    $(DEVICE_PATH)/overlay-lineage
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH)
+    $(DEVICE_PATH)
 
 # Permissions
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/system_ext-privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-qti.xml
+    $(DEVICE_PATH)/configs/system_ext-privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-qti.xml
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.audio.low_latency.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.low_latency.xml \
@@ -85,15 +87,19 @@ PRODUCT_PACKAGES += \
     libsndmonitor
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
-    $(LOCAL_PATH)/audio/audio_output_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_output_policy.conf \
-    $(LOCAL_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/audio_policy_configuration.xml \
-    $(LOCAL_PATH)/audio/audio_policy_configuration_a2dp_offload_disabled.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
-    $(LOCAL_PATH)/audio/audio_policy_configuration_a2dp_offload_disabled_qti.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/audio_policy_configuration_a2dp_offload_disabled.xml \
-    $(LOCAL_PATH)/audio/audio_tuning_mixer.txt:$(TARGET_COPY_OUT_VENDOR)/etc/audio_tuning_mixer.txt \
-    $(LOCAL_PATH)/audio/bluetooth_qti_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_qti_audio_policy_configuration.xml \
-    $(LOCAL_PATH)/audio/graphite_ipc_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/graphite_ipc_platform_info.xml \
-    $(LOCAL_PATH)/audio/listen_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/listen_platform_info.xml
+    $(DEVICE_PATH)/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
+    $(DEVICE_PATH)/audio/audio_output_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_output_policy.conf \
+    $(DEVICE_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/audio_policy_configuration.xml \
+    $(DEVICE_PATH)/audio/audio_policy_configuration_a2dp_offload_disabled.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
+    $(DEVICE_PATH)/audio/audio_policy_configuration_a2dp_offload_disabled_qti.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/audio_policy_configuration_a2dp_offload_disabled.xml \
+    $(DEVICE_PATH)/audio/audio_tuning_mixer.txt:$(TARGET_COPY_OUT_VENDOR)/etc/audio_tuning_mixer.txt \
+    $(DEVICE_PATH)/audio/bluetooth_qti_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_qti_audio_policy_configuration.xml \
+    $(DEVICE_PATH)/audio/graphite_ipc_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/graphite_ipc_platform_info.xml \
+    $(DEVICE_PATH)/audio/listen_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/listen_platform_info.xml \
+    $(DEVICE_PATH)/audio/audio_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info_intcodec.xml \
+    $(DEVICE_PATH)/audio/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths.xml \
+    $(DEVICE_PATH)/audio/sound_trigger_mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sound_trigger_mixer_paths.xml \
+    $(DEVICE_PATH)/audio/sound_trigger_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sound_trigger_platform_info.xml
 
 PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/a2dp_in_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_in_audio_policy_configuration.xml \
@@ -108,7 +114,7 @@ PRODUCT_PACKAGES += \
 
 # Biometrics
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1-service.xiaomi_sdm660
+    android.hardware.biometrics.fingerprint@2.1-service.wayne
 
 PRODUCT_PACKAGES += \
     org.ifaa.android.manager
@@ -119,6 +125,10 @@ PRODUCT_BOOT_JARS += \
 # Bluetooth
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.btconfigstore@1.0.vendor
+
+# Boot animation
+TARGET_SCREEN_HEIGHT := 2160
+TARGET_SCREEN_WIDTH := 1080
 
 # Camera
 PRODUCT_PACKAGES += \
@@ -134,17 +144,15 @@ PRODUCT_PACKAGES += \
 
 # Component overrides
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/component-overrides.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sysconfig/component-overrides.xml \
-    $(LOCAL_PATH)/configs/component-overrides-qti.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/component-overrides.xml
+    $(DEVICE_PATH)/configs/component-overrides.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sysconfig/component-overrides.xml \
+    $(DEVICE_PATH)/configs/component-overrides-qti.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/component-overrides.xml
 
 # ConsumerIR
-ifeq ($(BOARD_HAVE_IR),true)
 PRODUCT_PACKAGES += \
-    android.hardware.ir@1.0-service.xiaomi_sdm660
+    android.hardware.ir@1.0-service.wayne
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.consumerir.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.consumerir.xml
-endif
 
 # Display
 PRODUCT_PACKAGES += \
@@ -182,15 +190,6 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-service \
     android.hardware.drm@1.3-service.clearkey
 
-# FM
-ifeq ($(BOARD_HAVE_QCOM_FM),true)
-PRODUCT_PACKAGES += \
-    FM2 \
-    libqcomfm_jni \
-    qcom.fmradio \
-    qcom.fmradio.xml
-endif
-
 # fwk-detect
 PRODUCT_PACKAGES += \
     libqti_vndfwk_detect \
@@ -207,22 +206,21 @@ PRODUCT_PACKAGES += \
     libwifi-hal-ctrl
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/gps/etc/flp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/flp.conf \
-    $(LOCAL_PATH)/gps/etc/gps.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gps.conf \
-    $(LOCAL_PATH)/gps/etc/izat.conf:$(TARGET_COPY_OUT_VENDOR)/etc/izat.conf \
-    $(LOCAL_PATH)/gps/etc/lowi.conf:$(TARGET_COPY_OUT_VENDOR)/etc/lowi.conf \
-    $(LOCAL_PATH)/gps/etc/sap.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sap.conf \
-    $(LOCAL_PATH)/gps/etc/xtwifi.conf:$(TARGET_COPY_OUT_VENDOR)/etc/xtwifi.conf
+    $(DEVICE_PATH)/gps/etc/flp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/flp.conf \
+    $(DEVICE_PATH)/gps/etc/gps.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gps.conf \
+    $(DEVICE_PATH)/gps/etc/izat.conf:$(TARGET_COPY_OUT_VENDOR)/etc/izat.conf \
+    $(DEVICE_PATH)/gps/etc/lowi.conf:$(TARGET_COPY_OUT_VENDOR)/etc/lowi.conf \
+    $(DEVICE_PATH)/gps/etc/sap.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sap.conf \
+    $(DEVICE_PATH)/gps/etc/xtwifi.conf:$(TARGET_COPY_OUT_VENDOR)/etc/xtwifi.conf
+
+# Haters gonna hate..
+PRODUCT_CHARACTERISTICS := nosdcard
 
 # Healthd
 PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl:64 \
-    android.hardware.health@2.1-service
-
-ifneq ($(AB_OTA_UPDATER),true)
-PRODUCT_PACKAGES += \
+    android.hardware.health@2.1-service \
     android.hardware.health@2.1-impl.recovery
-endif
 
 # HIDL
 PRODUCT_PACKAGES += \
@@ -235,11 +233,12 @@ PRODUCT_PACKAGES += \
 
 # IDC
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/idc/uinput-fpc.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/uinput-fpc.idc \
-    $(LOCAL_PATH)/idc/uinput-goodix.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/uinput-goodix.idc
+    $(DEVICE_PATH)/idc/uinput-fpc.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/uinput-fpc.idc \
+    $(DEVICE_PATH)/idc/uinput-goodix.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/uinput-goodix.idc
 
 # Init
 PRODUCT_PACKAGES += \
+    fstab.qcom \
     init.class_main.sh \
     init.msm.usb.configfs.rc \
     init.qcom.early_boot.sh \
@@ -254,20 +253,20 @@ PRODUCT_PACKAGES += \
 
 # IRQ
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/msm_irqbalance.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance.conf
+    $(DEVICE_PATH)/configs/msm_irqbalance.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance.conf
 
 # IRSC
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
+    $(DEVICE_PATH)/configs/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
 
 # Keylayout
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/keylayout/uinput-fpc.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-fpc.kl \
-    $(LOCAL_PATH)/keylayout/uinput-goodix.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-goodix.kl
+    $(DEVICE_PATH)/keylayout/uinput-fpc.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-fpc.kl \
+    $(DEVICE_PATH)/keylayout/uinput-goodix.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-goodix.kl
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.xiaomi_sdm660
+    android.hardware.light@2.0-service.wayne
 
 # LiveDisplay native
 PRODUCT_PACKAGES += \
@@ -276,9 +275,9 @@ PRODUCT_PACKAGES += \
 
 # Media
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
-    $(LOCAL_PATH)/configs/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml \
-    $(LOCAL_PATH)/configs/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
+    $(DEVICE_PATH)/configs/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
+    $(DEVICE_PATH)/configs/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml \
+    $(DEVICE_PATH)/configs/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
 
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_audio.xml \
@@ -306,7 +305,7 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.perf@2.0.vendor
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/perf/perf-profile0.conf:$(TARGET_COPY_OUT_VENDOR)/etc/perf/perf-profile0.conf
+    $(DEVICE_PATH)/configs/perf/perf-profile0.conf:$(TARGET_COPY_OUT_VENDOR)/etc/perf/perf-profile0.conf
 
 # Protobuf
 PRODUCT_PACKAGES += \
@@ -315,11 +314,11 @@ PRODUCT_PACKAGES += \
 
 # Public Libraries
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
+    $(DEVICE_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
 
 # Low power Whitelist
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/qti_whitelist.xml:system/etc/sysconfig/qti_whitelist.xml
+    $(DEVICE_PATH)/configs/qti_whitelist.xml:system/etc/sysconfig/qti_whitelist.xml
 
 # QMI
 PRODUCT_PACKAGES += \
@@ -350,8 +349,8 @@ PRODUCT_BOOT_JARS += \
 
 # Seccomp policy
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/seccomp/mediacodec-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
-    $(LOCAL_PATH)/seccomp/mediaextractor-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy
+    $(DEVICE_PATH)/seccomp/mediacodec-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
+    $(DEVICE_PATH)/seccomp/mediaextractor-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy
 
 # Sensors
 PRODUCT_PACKAGES += \
@@ -371,6 +370,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vendor.lineage.trust@1.0-service
 
+# USB
+PRODUCT_PACKAGES += \
+    android.hardware.usb@1.0-service
+
 # Vibrator
 PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-impl:64 \
@@ -386,9 +389,9 @@ PRODUCT_PACKAGES += \
     wpa_supplicant.conf
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
-    $(LOCAL_PATH)/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf \
-    $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
+    $(DEVICE_PATH)/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
+    $(DEVICE_PATH)/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf \
+    $(DEVICE_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
 
 # Inherit the proprietary files
-$(call inherit-product, vendor/xiaomi/sdm660-common/sdm660-common-vendor.mk)
+$(call inherit-product, vendor/xiaomi/wayne/wayne-vendor.mk)
