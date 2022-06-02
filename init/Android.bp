@@ -5,9 +5,9 @@
 //
 
 cc_library_static {
-    name: "libinit_sdm660",
+    name: "libinit_wayne",
     recovery_available: true,
-    srcs: ["init_sdm660.cpp"],
+    srcs: ["init_wayne.cpp"],
     include_dirs: [
         "system/core/init"
     ],
