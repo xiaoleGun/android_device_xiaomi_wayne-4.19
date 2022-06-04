@@ -40,6 +40,9 @@ gpu.stats.debug.level                   u:object_r:vendor_default_prop:s0
 persist.vendor.sys.pay.                 u:object_r:mlipay_prop:s0
 persist.vendor.sys.provision.status     u:object_r:mlipay_prop:s0
 
+# iwlan
+persist.vendor.iwlan.logging.logcat     u:object_r:vendor_cnd_vendor_prop:s0
+
 # MWQEM
 persist.vendor.mwqem.                   u:object_r:vendor_mwqem_prop:s0
 
