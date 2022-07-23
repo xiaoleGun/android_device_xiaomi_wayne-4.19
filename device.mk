@@ -338,9 +338,9 @@ PRODUCT_PACKAGES += \
 
 # RIL
 PRODUCT_PACKAGES += \
-    android.hardware.radio.config@1.1 \
+    android.hardware.radio.config@1.2 \
     android.hardware.radio@1.5 \
-    android.hardware.secure_element@1.1 \
+    android.hardware.secure_element@1.2 \
     libavservices_minijail.vendor \
     libjson \
     libprotobuf-cpp-full \
