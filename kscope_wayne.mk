@@ -9,8 +9,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_o_mr1.mk)
 
-# Inherit some common Lineage stuff
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit some common Kaleidoscope stuff.
+$(call inherit-product, vendor/kscope/target/product/mobile.mk)
 
 # Inherit from wayne device
 $(call inherit-product, device/xiaomi/wayne/device.mk)
@@ -19,7 +19,7 @@ PRODUCT_BRAND := Xiaomi
 PRODUCT_DEVICE := wayne
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_MODEL := MI 6X
-PRODUCT_NAME := lineage_wayne
+PRODUCT_NAME := kscope_wayne
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
