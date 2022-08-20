@@ -68,25 +68,23 @@ vendor/firmware/dbmd4_va_fw.bin
 vendor/firmware/tas2557_uCDSP.bin
 vendor/firmware/tfa98xx.cnt
 
-# Bluetooth - from ginkgo V12.5.1.0.RCOCNXM
-vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti|c2ea0d91006c5a12efa07d42cae47b3008124571
-vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc|f4ee3b2da2b08647447869ade86ec63f7340accc
-vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so|ea763a5951a646dc018489dfb368cc72829fff44
-vendor/lib64/libbtnv.so|086a227f793822ef3eed15aea21a207c68feb7a9
-vendor/lib64/libbt-hidlclient.so|da867a59f05832dcd5c116fc69e692b6a4d8c77b
-vendor/lib64/vendor.qti.hardware.fm@1.0.so|ee02e7e7a7c474822f575fc76eb3fe6205ffde53
+# Bluetooth - from coral RQ3A.211001.001
+vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti|b46787995bafdfc7ca0ecac1c024f3ea20135c3f
+vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc|d5fcb9c2cf5538b9c946b9263b144e714433a578
+vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so|8e9a2ea4dc86f211a8842db98340e66c5686945d
+vendor/lib64/libbtnv.so|82cc941c6a262e0965925b4955b1ea508b798bfa
+vendor/lib64/libbt-hidlclient.so|586c6341fb01e1c8ae35997b8d5b1963cdcb9334
+vendor/lib64/vendor.qti.hardware.fm@1.0.so|d214ad9022558b7521a51f068049d36eae1c4b95
 
-# Bluetooth (aptX) - from ginkgo V12.5.1.0.RCOCNXM
+# Bluetooth (aptX) - from coral RQ3A.211001.001
 vendor/lib/rfsa/adsp/capi_v2_aptX_Classic.so|59cbdf5d84ba2ff64014941f3ad9e6c2c35e2c06
 vendor/lib/rfsa/adsp/capi_v2_aptX_HD.so|e25f1087edc95d2ff76c1e37787ca37aae2cf175
 
-# Bluetooth (Configstore) - from ginkgo V12.5.1.0.RCOCNXM
-vendor/lib64/hw/vendor.qti.hardware.btconfigstore@2.0-impl.so|fc6265cb719afac0ff0bf6722d7f4cb4b408fd7b
-
-# Bluetooth (SAR) - from ginkgo V12.5.1.0.RCOCNXM
-vendor/lib64/hw/vendor.qti.hardware.bluetooth_sar@1.1-impl.so|624ac893ea428a29df50336f6fe08879b1bb5c21
-vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so|64de735684377aba4a33a3bb0bee25f7999bafcd
-vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.1.so|32c763b353882c9a711a641ff9eb99fe1b0e164d
+# Bluetooth (SAR) - from coral RQ3A.211001.001
+vendor/lib64/hw/vendor.qti.hardware.bluetooth_sar@1.0-impl.so|52406061efa8185ed91261624611b2957d035590
+vendor/lib64/hw/vendor.qti.hardware.bluetooth_sar@1.1-impl.so|9180be49b3f9f00f071b157889f16146a5054f5d
+vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so|d7dccf2f3994c6a44f1316949cf882e29b6ba5ea
+vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.1.so|f2d4969eb33ac0204fc286cc72e2a3560ba2413e
 
 # Camera - from LA.UM.9.11.r1-03900-NICOBAR.0
 vendor/lib/lib_algo_svhdr.so|effdf0540edf47574eeaae69f131ac632dec25cb
