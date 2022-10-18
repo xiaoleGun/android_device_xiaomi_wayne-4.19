@@ -4,6 +4,10 @@ cc_binary {
     init_rc: ["android.hardware.lights.wayne.rc"],
     vintf_fragments: ["android.hardware.lights.wayne.xml"],
     vendor: true,
+    overrides: [
+        "android.hardware.light@2.0-service",
+        "android.hardware.lights-service.qti",
+    ],
     shared_libs: [
         "libbase",
         "liblog",
