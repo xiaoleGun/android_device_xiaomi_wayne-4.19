@@ -75,10 +75,6 @@ vendor/lib64/hw/vendor.qti.hardware.bluetooth_sar@1.1-impl.so|9180be49b3f9f00f07
 vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so|d7dccf2f3994c6a44f1316949cf882e29b6ba5ea
 vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.1.so|f2d4969eb33ac0204fc286cc72e2a3560ba2413e
 
-# Bluetooth (aptX) - from coral-user 11 RQ3A.211001.001 7641976
-vendor/lib/rfsa/adsp/capi_v2_aptX_Classic.so|59cbdf5d84ba2ff64014941f3ad9e6c2c35e2c06
-vendor/lib/rfsa/adsp/capi_v2_aptX_HD.so|e25f1087edc95d2ff76c1e37787ca37aae2cf175
-
 # Bluetooth - from coral-user 11 RQ3A.211001.001 7641976
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti|b46787995bafdfc7ca0ecac1c024f3ea20135c3f
 vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc|d5fcb9c2cf5538b9c946b9263b144e714433a578
