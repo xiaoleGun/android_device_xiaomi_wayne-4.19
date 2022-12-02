@@ -55,6 +55,11 @@ TARGET_ENABLE_MEDIADRM_64 := true
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 
+# GPS
+BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := default
+GNSS_HIDL_VERSION := 2.1
+LOC_HIDL_VERSION := 4.0
+
 # HIDL
 DEVICE_FRAMEWORK_MANIFEST_FILE := $(DEVICE_PATH)/configs/vintf/framework_manifest.xml
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/configs/vintf/manifest.xml
