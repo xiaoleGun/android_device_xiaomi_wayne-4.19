@@ -9,7 +9,8 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-4096-dalvik-heap.mk)
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH)
+    $(LOCAL_PATH) \
+    vendor/qcom/opensource/usb/etc
 
 # AID/fs configs
 PRODUCT_PACKAGES += \
@@ -38,6 +39,8 @@ PRODUCT_PACKAGES += \
     init.qti.dcvs.sh \
     init.qcom.rc \
     init.qcom.sh \
+    init.qcom.usb.rc \
+    init.qcom.usb.sh \
     init.recovery.qcom.rc \
     init.target.rc \
     ueventd.qcom.rc
