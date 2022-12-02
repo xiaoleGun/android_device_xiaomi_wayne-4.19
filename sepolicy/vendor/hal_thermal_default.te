@@ -1,0 +1,8 @@
+# This is required to access proc stat for fetching CPU usage
+allow hal_thermal_default proc_stat:file { getattr open read };
+
+# This is required for thermal sysfs access
+allow hal_thermal_default sysfs_thermal:file w_file_perms;
+
+# netlink access
+allow hal_thermal_default self:netlink_kobject_uevent_socket create_socket_perms_no_ioctl;

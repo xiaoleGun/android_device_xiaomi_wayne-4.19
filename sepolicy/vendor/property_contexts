@@ -1,0 +1,60 @@
+# Audio
+audio.sys.noisy.broadcast.delay         u:object_r:vendor_default_prop:s0
+audio.sys.offload.pstimeout.secs        u:object_r:vendor_default_prop:s0
+audio_hal.in_period_size                u:object_r:vendor_default_prop:s0
+audio_hal.period_multiplier             u:object_r:vendor_default_prop:s0
+persist.audio.fluence.voicecomm         u:object_r:vendor_default_prop:s0
+
+# Camera
+camera.clientname                       u:object_r:camera_prop:s0
+camera.debug.                           u:object_r:camera_prop:s0
+camera.facebeauty.version               u:object_r:camera_prop:s0
+camera.llvd.preview.disable             u:object_r:camera_prop:s0
+camera.sensor.                          u:object_r:camera_prop:s0
+camera.test.novtsgsi                    u:object_r:camera_prop:s0
+cameradaemon.SaveMemAtBoot              u:object_r:vendor_default_prop:s0
+cpp.set.clock                           u:object_r:vendor_default_prop:s0
+disable.cpp.power.collapse              u:object_r:vendor_default_prop:s0
+persist.camera.                         u:object_r:vendor_default_prop:s0
+persist.vendor.camera.                  u:object_r:camera_prop:s0
+vendor.camera.                          u:object_r:camera_prop:s0
+vendor.camera.eis.gyro_name             u:object_r:camera_prop:s0
+vidc.enc.dcvs.extra-buff-count          u:object_r:vendor_default_prop:s0
+
+# FIH specific
+ro.product.model.num                    u:object_r:exported_default_prop:s0
+
+# Fingerprint
+fpc_kpi                                 u:object_r:vendor_default_prop:s0
+gf.debug.dump_data                      u:object_r:vendor_default_prop:s0
+persist.sys.fp.                         u:object_r:hal_fingerprint_prop:s0
+persist.vendor.sys.fp.                  u:object_r:hal_fingerprint_prop:s0
+ro.boot.fp.                             u:object_r:hal_fingerprint_prop:s0
+ro.boot.fpsensor                        u:object_r:hal_fingerprint_prop:s0
+sys.fp.                                 u:object_r:hal_fingerprint_prop:s0
+
+# Media
+gpu.stats.debug.level                   u:object_r:vendor_default_prop:s0
+
+# Mlipay
+persist.vendor.sys.pay.                 u:object_r:mlipay_prop:s0
+persist.vendor.sys.provision.status     u:object_r:mlipay_prop:s0
+
+# iwlan
+persist.vendor.iwlan.logging.logcat     u:object_r:vendor_cnd_vendor_prop:s0
+
+# Power HAL
+vendor.powerhal.                        u:object_r:vendor_power_prop:s0
+
+# RIL
+ro.build.software.version               u:object_r:telephony_status_prop:s0
+ro.fota.oem                             u:object_r:telephony_status_prop:s0
+ro.miui.                                u:object_r:telephony_status_prop:s0
+ro.product.mod_device                   u:object_r:telephony_status_prop:s0
+
+# Thermal engine
+persist.sys.thermal.                    u:object_r:thermal_engine_prop:s0
+sys.thermal.                            u:object_r:thermal_engine_prop:s0
+
+# Wlan
+persist.vendor.wigig.npt.enable         u:object_r:vendor_default_prop:s0

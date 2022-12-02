@@ -1,0 +1,2 @@
+dontaudit init { bt_firmware_file }:filesystem getattr;
+allow init same_process_hal_file:file execute;

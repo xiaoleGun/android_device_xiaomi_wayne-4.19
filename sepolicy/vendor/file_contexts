@@ -1,0 +1,55 @@
+# Fingerprint
+/vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.wayne                                                                               u:object_r:hal_fingerprint_wayne_exec:s0
+/data/gf_data(/.*)?                                                                                                                                         u:object_r:fingerprintd_data_file:s0
+/data/vendor/fpc(/.*)?                                                                                                                                      u:object_r:fingerprint_vendor_data_file:s0
+/data/vendor/gf_data(/.*)?                                                                                                                                  u:object_r:fingerprint_vendor_data_file:s0
+/data/vendor/goodix(/.*)?                                                                                                                                   u:object_r:fingerprint_vendor_data_file:s0
+/dev/goodix_fp                                                                                                                                              u:object_r:fingerprint_device:s0
+
+# Firmware
+/firmware                                                                                                                                                   u:object_r:firmware_file:s0
+/bt_firmware                                                                                                                                                u:object_r:bt_firmware_file:s0
+
+# Hexagon DSP-side executable needed for Halide operation
+# This is labeled as public_adsprpcd_file as it needs to be read by apps
+# (e.g. Google Camera App)
+/mnt/vendor/dsp/fastrpc_shell_3                                                                                                                             u:object_r:public_adsprpcd_file:s0
+
+# I/O
+/sys/devices(/platform)?/soc/[a-f0-9]+.sdhci/mmc_host/mmc[0-9]/mmc[0-9]:[a-f0-9]+/block/mmcblk[0-9]/queue/read_ahead_kb                                     u:object_r:sysfs_mmc_host:s0
+
+# IR
+/dev/lirc0                                                                                                                                                  u:object_r:spidev_device:s0
+/dev/spidev7.1                                                                                                                                              u:object_r:spidev_device:s0
+
+# Lights
+/vendor/bin/hw/android\.hardware\.lights-service\.wayne                                                                                                     u:object_r:hal_light_default_exec:s0
+
+# Mlipay
+/vendor/bin/mlipayd@1\.1                                                                                                                                    u:object_r:hal_mlipay_default_exec:s0
+
+# Root files
+/persist(/.*)?                                                                                                                                              u:object_r:mnt_vendor_file:s0
+
+# Power
+/vendor/bin/hw/android\.hardware\.power-service\.wayne-libperfmgr                                                                                           u:object_r:hal_power_default_exec:s0
+
+# Thermal
+/vendor/bin/hw/android\.hardware\.thermal@2\.0-service\.qti                                                                                                 u:object_r:hal_thermal_default_exec:s0
+/data/vendor/thermal(/.*)?                                                                                                                                  u:object_r:thermal_data_file:s0
+
+# USB
+/vendor/bin/hw/android\.hardware\.usb@1\.3-service-qti                                                                                                     u:object_r:hal_usb_default_exec:s0
+
+# Wakeup
+/sys/devices/platform/soc/800f000\.qcom,spmi/spmi-0/spmi0-00/800f000\.qcom,spmi:qcom,pm660@0:qcom,pm660_rtc/rtc/rtc0/wakeup[0-9]+(/.*)?                     u:object_r:sysfs_wakeup:s0
+/sys/devices/platform/soc/800f000\.qcom,spmi/spmi-0/spmi0-00/800f000\.qcom,spmi:qcom,pm660@0:qpnp,fg/power_supply/bms/wakeup[0-9]+(/.*)?                    u:object_r:sysfs_wakeup:s0
+/sys/devices/platform/soc/800f000\.qcom,spmi/spmi-0/spmi0-00/800f000\.qcom,spmi:qcom,pm660@0:qcom,qpnp-smb2/power_supply/battery/wakeup[0-9]+(/.*)?         u:object_r:sysfs_wakeup:s0
+/sys/devices/platform/soc/800f000\.qcom,spmi/spmi-0/spmi0-00/800f000\.qcom,spmi:qcom,pm660@0:qcom,qpnp-smb2/power_supply/dc/wakeup[0-9]+(/.*)?              u:object_r:sysfs_wakeup:s0
+/sys/devices/platform/soc/800f000\.qcom,spmi/spmi-0/spmi0-00/800f000\.qcom,spmi:qcom,pm660@0:qcom,qpnp-smb2/power_supply/main/wakeup[0-9]+(/.*)?            u:object_r:sysfs_wakeup:s0
+/sys/devices/platform/soc/800f000\.qcom,spmi/spmi-0/spmi0-00/800f000\.qcom,spmi:qcom,pm660@0:qcom,qpnp-smb2/power_supply/pc_port/wakeup[0-9]+(/.*)?         u:object_r:sysfs_wakeup:s0
+/sys/devices/platform/soc/800f000\.qcom,spmi/spmi-0/spmi0-00/800f000\.qcom,spmi:qcom,pm660@0:qcom,qpnp-smb2/power_supply/usb/wakeup[0-9]+(/.*)?             u:object_r:sysfs_wakeup:s0
+/sys/devices/platform/soc/c176000\.i2c/i2c-2/2-001d/power_supply/parallel/wakeup[0-9]+(/.*)?                                                                u:object_r:sysfs_wakeup:s0
+/sys/devices/platform/soc/ca0c000\.qcom,cci/ca0c000\.qcom,cci:qcom,camera@0/video4linux/video[0-9]/wakeup[0-9]+(/.*)?                                       u:object_r:sysfs_wakeup:s0
+/sys/devices/platform/soc/ca0c000\.qcom,cci/ca0c000\.qcom,cci:qcom,camera@1/video4linux/video[0-9]/wakeup[0-9]+(/.*)?                                       u:object_r:sysfs_wakeup:s0
+/sys/devices/platform/soc/ca0c000\.qcom,cci/ca0c000\.qcom,cci:qcom,camera@2/video4linux/video[0-9]/wakeup[0-9]+(/.*)?                                       u:object_r:sysfs_wakeup:s0

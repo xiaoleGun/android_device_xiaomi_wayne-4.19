@@ -1,0 +1,11 @@
+typeattribute vendor_init data_between_core_and_vendor_violators;
+
+allow vendor_init {
+  system_data_file
+  tombstone_data_file
+}:dir { create search getattr open read setattr ioctl write add_name remove_name rmdir relabelfrom };
+
+allow init adsprpcd_file:file mounton;
+
+set_prop(vendor_init, camera_prop)
+set_prop(vendor_init, vendor_power_prop)
