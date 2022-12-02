@@ -106,6 +106,44 @@ on boot
     chown system system /persist/speccfg/submask
     chown system system /persist/speccfg/partition
 
+    # Camera
+    chmod 0660 /sys/android_camera/sensor
+    chown system system /sys/android_camera/sensor
+
+    # Flash
+    chmod 0660 /sys/class/leds/led:flash_0/brightness
+    chmod 0660 /sys/class/leds/led:flash_1/brightness
+    chmod 0660 /sys/class/leds/led:flash_2/brightness
+    chmod 0660 /sys/class/leds/led:torch_0/brightness
+    chmod 0660 /sys/class/leds/led:torch_1/brightness
+    chmod 0660 /sys/class/leds/led:torch_2/brightness
+    chmod 0660 /sys/class/leds/led:switch_0/brightness
+    chmod 0660 /sys/class/leds/led:switch_1/brightness
+    chmod 0660 /sys/class/leds/flashlight/brightness
+    chown system system /sys/class/leds/led:flash_0/brightness
+    chown system system /sys/class/leds/led:flash_1/brightness
+    chown system system /sys/class/leds/led:flash_2/brightness
+    chown system system /sys/class/leds/led:torch_0/brightness
+    chown system system /sys/class/leds/led:torch_1/brightness
+    chown system system /sys/class/leds/led:torch_2/brightness
+    chown system system /sys/class/leds/led:switch_0/brightness
+    chown system system /sys/class/leds/led:switch_1/brightness
+    chown system system /sys/class/leds/flashlight/brightness
+
+    # IR
+    chmod 0660 /dev/spidev7.1
+    chown system system /dev/spidev7.1
+
+    # Power supply
+    chmod 0660 /sys/class/power_supply/battery/input_suspend
+    chmod 0660 /sys/class/power_supply/battery/charging_enabled
+    chown system system /sys/class/power_supply/battery/input_suspend
+    chown system system /sys/class/power_supply/battery/charging_enabled
+
+    # Thermal
+    chmod 0770 /sys/class/power_supply/battery/device/thermalcall
+    chown system system /sys/class/power_supply/battery/device/thermalcall
+
 #Create folder dump yuv images while debugging
     mkdir /data/vendor/camera 0770 camera camera
 
@@ -441,3 +479,7 @@ service vendor.hvdcp_opti /vendor/bin/hvdcp_opti
     user system
     group system wakelock
     capabilities BLOCK_SUSPEND WAKE_ALARM
+
+# Workaround for camera HAL can not read sys property
+on property:sys.camera.face.unlock=*
+    setprop vendor.camera.face.unlock ${sys.camera.face.unlock}
