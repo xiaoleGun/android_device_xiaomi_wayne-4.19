@@ -1,0 +1,7 @@
+libadsprpc.so
+libcdsprpc.so
+libsdsprpc.so
+libfastcvopt.so
+libOpenCL.so
+libprotobuf-cpp-full.so
+libprotobuf-cpp-lite.so
