@@ -203,6 +203,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@4.0.vendor
 
+# Lights
+PRODUCT_PACKAGES += \
+    android.hardware.lights-service.wayne
+
 # Media
 PRODUCT_PACKAGES += \
     android.hardware.media.c2@1.0.vendor
