@@ -769,8 +769,8 @@ vendor/lib/libmmcamera_isp_sce40.so|23db7c7ff21a9f14875c9b1112dbcc678a6ba5af
 vendor/lib/libmmcamera_isp_snr47.so|30682c2d022d44992391eaf66be7e6726b321868
 vendor/lib/libmmcamera_isp_sub_module.so|b674c932121d64dec7ce9840c2ef118c9c3dc649
 
-# Charger - from S62Pro
-vendor/bin/hvdcp_opti|0af1d3a59fd10acd7a614662c341421d9267014c
+# Charger - from jasmine
+vendor/bin/hvdcp_opti|120837d6d44abfd86515731dd26183be9cdd5596
 
 # CNE - from S62Pro
 system_ext/framework/com.quicinc.cne.api-V1.0-java.jar|31ba1bfae2830f87e77844cfb96913271dac0925

@@ -472,11 +472,10 @@ service seempd /system/bin/seempd
     group system sdcard_rw
     socket seempdw dgram 0666 system system
 
-service vendor.hvdcp_opti /vendor/bin/hvdcp_opti
+service vendor.hvdcp_opti /system/vendor/bin/hvdcp_opti
     class main
-    user system
+    user root
     group system wakelock
-    capabilities BLOCK_SUSPEND WAKE_ALARM
 
 # Workaround for camera HAL can not read sys property
 on property:sys.camera.face.unlock=*
