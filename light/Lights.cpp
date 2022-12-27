@@ -25,9 +25,7 @@ namespace {
 
 #define LEDS(x) PPCAT(/sys/class/leds, x)
 #define LCD_ATTR(x) STRINGIFY(PPCAT(LEDS(lcd-backlight), x))
-#define WHITE_ATTR(x) STRINGIFY(PPCAT(LEDS(white), x))
-#define BUTTON_ATTR(x) STRINGIFY(PPCAT(LEDS(button-backlight), x))
-#define BUTTON1_ATTR(x) STRINGIFY(PPCAT(LEDS(button-backlight1), x))
+#define WHITE_ATTR(x) STRINGIFY(PPCAT(LEDS(red), x))
 
 using ::android::base::ReadFileToString;
 using ::android::base::WriteStringToFile;
@@ -36,16 +34,9 @@ using ::android::base::WriteStringToFile;
 constexpr auto kDefaultMaxLedBrightness = 255;
 constexpr auto kDefaultMaxScreenBrightness = 4095;
 
-// Each step will stay on for 50ms by default.
-constexpr auto kRampStepDurationDefault = 50;
-
 // Write value to path and close file.
 bool WriteToFile(const std::string& path, uint32_t content) {
     return WriteStringToFile(std::to_string(content), path);
-}
-
-bool WriteToFile(const std::string& path, const std::string& content) {
-    return WriteStringToFile(content, path);
 }
 
 uint32_t RgbaToBrightness(uint32_t color) {
@@ -115,24 +106,6 @@ std::map<int, std::function<void(int id, const HwLightState&)>> lights_{
         max_led_brightness_ = kDefaultMaxLedBrightness;
         LOG(ERROR) << "Failed to read max LED brightness, fallback to " << kDefaultMaxLedBrightness;
     }
-
-    if (!access(BUTTON_ATTR(brightness), W_OK)) {
-        lights_.emplace(std::make_pair((int)LightType::BUTTONS,
-                                       [this](auto&&... args) { setLightButtons(args...); }));
-        buttons_.emplace_back(BUTTON_ATTR(brightness));
-
-        if (!access(BUTTON1_ATTR(brightness), W_OK)) {
-            buttons_.emplace_back(BUTTON1_ATTR(brightness));
-        }
-
-        if (ReadFileToString(BUTTON_ATTR(max_brightness), &buf)) {
-            max_button_brightness_ = std::stoi(buf);
-        } else {
-            max_button_brightness_ = kDefaultMaxLedBrightness;
-            LOG(ERROR) << "Failed to read max button brightness, fallback to "
-                       << kDefaultMaxLedBrightness;
-        }
-    }
 }
 
 ndk::ScopedAStatus Lights::setLightState(int id, const HwLightState& state) {
@@ -159,13 +132,6 @@ void Lights::setLightBacklight(int /*id*/, const HwLightState& state) {
     WriteToFile(LCD_ATTR(brightness), brightness);
 }
 
-void Lights::setLightButtons(int /*id*/, const HwLightState& state) {
-    uint32_t brightness = RgbaToBrightness(state.color, max_button_brightness_);
-    for (auto&& button : buttons_) {
-        WriteToFile(button, brightness);
-    }
-}
-
 void Lights::setLightNotification(int id, const HwLightState& state) {
     bool found = false;
     for (auto&& [cur_id, cur_state] : notif_states_) {
@@ -186,15 +152,13 @@ void Lights::applyNotificationState(const HwLightState& state) {
     uint32_t white_brightness = RgbaToBrightness(state.color, max_led_brightness_);
 
     // Turn off the leds (initially)
-    WriteToFile(WHITE_ATTR(blink), 0);
+    WriteToFile(WHITE_ATTR(breath), 0);
 
     if (state.flashMode == FlashMode::TIMED && state.flashOnMs > 0 && state.flashOffMs > 0) {
-        WriteToFile(WHITE_ATTR(ramp_step_ms),
-                    static_cast<uint32_t>(kRampStepDurationDefault)),
         // White
-        WriteToFile(WHITE_ATTR(start_idx), 0);
-        WriteToFile(WHITE_ATTR(pause_lo), static_cast<uint32_t>(state.flashOffMs));
-        WriteToFile(WHITE_ATTR(blink), 1);
+        WriteToFile(WHITE_ATTR(delay_off), static_cast<uint32_t>(state.flashOffMs));
+        WriteToFile(WHITE_ATTR(delay_on), static_cast<uint32_t>(state.flashOnMs));
+        WriteToFile(WHITE_ATTR(breath), 1);
     } else {
         WriteToFile(WHITE_ATTR(brightness), white_brightness);
     }
