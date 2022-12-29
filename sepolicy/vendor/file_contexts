@@ -22,6 +22,9 @@
 /dev/lirc0                                                                                                                                                  u:object_r:spidev_device:s0
 /dev/spidev7.1                                                                                                                                              u:object_r:spidev_device:s0
 
+# IR HAL
+/vendor/bin/hw/android\.hardware\.ir@1\.0-service\.wayne                                                                                                    u:object_r:hal_ir_default_exec:s0
+
 # Lights
 /vendor/bin/hw/android\.hardware\.lights-service\.wayne                                                                                                     u:object_r:hal_light_default_exec:s0
 
