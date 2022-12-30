@@ -22,6 +22,7 @@ Front Camera | 20 MP
 ```
 #
 # Copyright (C) 2022 The LineageOS Project
+# Copyright (C) 2021-2022 Miku UI
 #
 # SPDX-License-Identifier: Apache-2.0
 #

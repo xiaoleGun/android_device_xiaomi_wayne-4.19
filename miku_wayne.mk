@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2022 The LineageOS Project
+# Copyright (C) 2021-2022 Miku UI
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -11,11 +12,11 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from wayne device
 $(call inherit-product, device/xiaomi/wayne/device.mk)
 
-# Inherit some common Lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit some common Miku UI stuff.
+$(call inherit-product, vendor/miku/build/product/miku_product.mk)
 
 # Device identifier. This must come after all inclusions.
-PRODUCT_NAME := lineage_wayne
+PRODUCT_NAME := miku_wayne
 PRODUCT_DEVICE := wayne
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := MI 6X
