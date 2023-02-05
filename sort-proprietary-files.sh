@@ -30,8 +30,15 @@ else
     cp ${file} ${TMPDIR}/files.txt
 fi
 
+# Displays the current operating system name
+OS=`uname`
+
 # Make all section names unique
-sed -i "s/# .*/&00unique/g" ${TMPDIR}/files.txt
+if [[ ${OS} = "Darwin" ]]; then
+    sed -i "" "s/# .*/&00unique/g" ${TMPDIR}/files.txt
+else
+    sed -i "s/# .*/&00unique/g" ${TMPDIR}/files.txt
+fi
 
 # Get and sort the section
 cat ${TMPDIR}/files.txt | grep "# " | sort > ${TMPDIR}/sections.txt
@@ -44,10 +51,18 @@ while read section; do
 done < ${TMPDIR}/sections.txt
 
 # There is one new line too much
-sed -i -e :a -e '/^\n*$/{$d;N;ba' -e '}' ${TMPDIR}/sorted_files.txt
+if [[ ${OS} = "Darwin" ]]; then
+    sed -i "" -e :a -e '/^\n*$/{$d;N;ba' -e '}' ${TMPDIR}/sorted_files.txt
+else
+    sed -i -e :a -e '/^\n*$/{$d;N;ba' -e '}' ${TMPDIR}/sorted_files.txt
+fi
 
 # Revert the unique section names
-sed -i "s/00unique//g" ${TMPDIR}/sorted_files.txt
+if [[ ${OS} = "Darwin" ]]; then
+    sed -i "" "s/00unique//g" ${TMPDIR}/sorted_files.txt
+else
+    sed -i "s/00unique//g" ${TMPDIR}/sorted_files.txt
+fi
 
 mv ${TMPDIR}/sorted_files.txt ${file}
 
