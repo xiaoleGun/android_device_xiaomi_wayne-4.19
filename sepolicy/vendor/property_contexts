@@ -43,9 +43,6 @@ persist.vendor.sys.provision.status     u:object_r:mlipay_prop:s0
 # iwlan
 persist.vendor.iwlan.logging.logcat     u:object_r:vendor_cnd_vendor_prop:s0
 
-# Power HAL
-vendor.powerhal.                        u:object_r:vendor_power_prop:s0
-
 # RIL
 ro.build.software.version               u:object_r:telephony_status_prop:s0
 ro.fota.oem                             u:object_r:telephony_status_prop:s0

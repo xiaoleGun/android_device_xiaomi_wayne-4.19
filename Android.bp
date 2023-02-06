@@ -8,7 +8,5 @@
 soong_namespace {
     imports: [
         "vendor/qcom/opensource/usb/etc",
-        "hardware/google/interfaces",
-        "hardware/google/pixel",
     ],
 }

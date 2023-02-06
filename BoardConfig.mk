@@ -95,7 +95,6 @@ TARGET_KERNEL_VERSION := 4.19
 # Platform
 BOARD_VENDOR := xiaomi
 OVERRIDE_QCOM_HARDWARE_VARIANT := sdm660
-TARGET_BOARD_PLATFORM := sdm660
 TARGET_USES_UM_4_19 := true
 
 # Partitions
@@ -140,14 +139,14 @@ BOARD_ROOT_EXTRA_SYMLINKS := \
     /vendor/bt_firmware:/bt_firmware \
     /mnt/vendor/persist:/persist
 
+# Power
+TARGET_USES_NON_LEGACY_POWERHAL := true
+
 # Properties
 TARGET_ODM_PROP += $(DEVICE_PATH)/properties/odm.prop
 TARGET_PRODUCT_PROP += $(DEVICE_PATH)/properties/product.prop
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/properties/system.prop
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/properties/vendor.prop
-
-# QCOM
-BOARD_USES_QCOM_HARDWARE := true
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom

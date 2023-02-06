@@ -227,6 +227,11 @@
         <fqname>@1.0::IQSEECom/default</fqname>
     </hal>
     <hal format="hidl">
+        <name>vendor.qti.hardware.perf</name>
+        <transport>hwbinder</transport>
+        <fqname>@2.2::IPerf/default</fqname>
+    </hal>
+    <hal format="hidl">
         <name>vendor.qti.hardware.qteeconnector</name>
         <transport>hwbinder</transport>
         <fqname>@1.0::IAppConnector/default</fqname>

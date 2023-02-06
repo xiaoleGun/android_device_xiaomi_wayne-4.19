@@ -6,9 +6,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/miku_wayne.mk
+    $(LOCAL_DIR)/nyanpasu_wayne.mk
 
 COMMON_LUNCH_CHOICES := \
-    miku_wayne-userdebug \
-    miku_wayne-user \
-    miku_wayne-eng
+    nyanpasu_wayne-user \
+    nyanpasu_wayne-userdebug \
+    nyanpasu_wayne-eng
